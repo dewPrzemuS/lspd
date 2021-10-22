@@ -1,7 +1,9 @@
+import os
+
 from flask import Blueprint, redirect, render_template, request
 import json
 
-jsonFile = open("data.json")
+jsonFile = open(f"{os.path.dirname(os.path.realpath(__file__))}\\data.json")
 
 data = json.loads(jsonFile.read())
 
