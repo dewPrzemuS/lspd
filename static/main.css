@@ -1,0 +1,88 @@
+.form-check {
+    margin: 10px;
+}
+
+.btn {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+body {
+    padding: 10px;
+    background-color: #242424;
+}
+
+.card {
+    color: white;
+    margin: 5px;
+    background-color: #404040;
+}
+
+.rangeTextLeft {
+    color: white;
+    margin-top: -5px;
+    display: inline-flex;
+    float: left;
+    font-size: 12px;
+
+}
+
+.rangeTextRight {
+    color: white;
+    margin-top: -5px;
+    display: inline-flex;
+    float: right;
+    font-size: 12px;
+}
+
+.form-range {
+    margin-bottom: 0px;
+}
+
+.form-check-label {
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.form-check-input[type="checkbox"] {
+    border-radius: 50%;
+}
+
+.form-check-input:checked {
+    background-color: #198754;
+    border-color: #198754;
+}
+
+.form-check-input:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 .25rem rgba(25, 135, 84, .25);
+}
+
+.form-range::-moz-range-thumb {
+    background-color: #198754;
+}
+
+.form-range:focus::-moz-range-thumb {
+    box-shadow: 0 0 0 .25rem rgba(25, 135, 84, .25);
+}
+
+.postheader {
+    display: flex;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}
+
+.postsecondheader {
+    display: flex;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
