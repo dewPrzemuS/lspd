@@ -19,21 +19,14 @@ body {
     background-color: #404040;
 }
 
-.rangeTextLeft {
+.rangeText {
     color: white;
     margin-top: -5px;
-    display: inline-flex;
-    float: left;
-    font-size: 12px;
-
-}
-
-.rangeTextRight {
-    color: white;
-    margin-top: -5px;
-    display: inline-flex;
-    float: right;
-    font-size: 12px;
+    display: flex;
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-range {

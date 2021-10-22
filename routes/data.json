@@ -3,192 +3,231 @@
     "fine": 500,
     "pp": 4,
     "jail": 0,
-    "text": "Kierujący pojazdem mechanicznym może poruszać się wyłącznie po swojej prawej stronie. Poruszanie się po przeciwnej stronie ( czyt. lewej ) jest karane mandatem karnym w kwocie od 100 do 500$ oraz 4. punktami karnymi."
+    "minfine": 100,
+    "minjail": 0
   },
   "1.2KD": {
     "fine": 350,
     "pp": 6,
     "jail": 0,
-    "text": ""
+    "minfine": 0,
+    "minjail": 0
   },
   "1.3KD": {
     "fine": 850,
     "pp": 7,
     "jail": 0,
-    "text": ""
+    "minfine": 0,
+    "minjail": 0
   },
   "1.4KD": {
     "fine": 1000,
     "pp": 0,
     "jail": 0,
-    "text": ""
+    "minfine": 1000,
+    "minjail": 0
   },
   "1.5KD": {
     "fine": 75,
     "pp": 0,
     "jail": 0,
-    "text": ""
+    "minfine": 20,
+    "minjail": 0
   },
   "1.6KD": {
     "fine": 700,
     "pp": 24,
     "jail": 30,
-    "text": ""
+    "minfine": 700,
+    "minjail": 30
   },
   "1.7KD": {
     "fine": 100,
     "pp": 3,
     "jail": 0,
-    "text": ""
+    "minfine": 100,
+    "minjail": 0
   },
   "1.8KD": {
     "fine": 250,
     "pp": 7,
     "jail": 0,
-    "text": ""
+    "minfine": 0,
+    "minjail": 0
   },
   "1.9KD": {
     "fine": 500,
     "pp": 8,
     "jail": 0,
-    "text": ""
+    "minfine": 0,
+    "minjail": 0
   },
   "1.10KD": {
     "fine": 500,
     "pp": 5,
     "jail": 0,
-    "text": ""
+    "minfine": 0,
+    "minjail": 0
   },
   "1.12KD": {
     "fine": 1500,
     "pp": 8,
     "jail": 0,
-    "text": ""
+    "minfine": 500,
+    "minjail": 0
   },
   "1.13KD": {
     "fine": 1000,
     "pp": 5,
     "jail": 0,
-    "text": ""
+    "minfine": 300,
+    "minjail": 0
   },
   "1.14KD": {
     "fine": 10000,
     "pp": 15,
     "jail": 30,
-    "text": ""
+    "minfine": 5000,
+    "minjail": 0
   },
   "1.15KD": {
     "fine": 500,
     "pp": 3,
     "jail": 0,
-    "text": ""
+    "minfine": 500,
+    "minjail": 0
   },
   "1.16KD": {
     "fine": 750,
     "pp": 7,
     "jail": 0,
-    "text": ""
+    "minfine": 0,
+    "minjail": 0
   },
   "1.17KD": {
     "fine": 1000,
     "pp": 10,
     "jail": 0,
-    "text": ""
+    "minfine": 1000,
+    "minjail": 0
   },
   "1.21KD": {
     "fine": 250,
     "pp": 3,
     "jail": 0,
-    "text": ""
+    "minfine": 100,
+    "minjail": 0
   },
   "1.23KD": {
     "fine": 200,
     "pp": 2,
     "jail": 0,
-    "text": ""
+    "minfine": 0,
+    "minjail": 0
   },
   "3.4KD": {
     "fine": 500,
     "pp": 6,
     "jail": 0,
-    "text": ""
+    "minfine": 0,
+    "minjail": 0
   },
   "4.1KD": {
     "fine": 800,
     "pp": 8,
     "jail": 0,
-    "text": ""
+    "minfine": 100,
+    "minjail": 0
   },
   "4.2KD": {
-    "fine": 0,
+    "fine": 2500,
     "pp": 0,
     "jail": 45,
-    "text": ""
+    "minfine": 0,
+    "minjail": 0
   },
   "5.1KD": {
     "fine": 5000,
     "pp": 15,
     "jail": 0,
-    "text": ""
+    "minfine": 0,
+    "minjail": 0
   },
   "5.3KD": {
     "fine": 1000,
     "pp": 0,
     "jail": 0,
-    "text": ""
+    "minfine": 500,
+    "minjail": 0
   },
   "6.1KD": {
     "fine": 500,
     "pp": 10,
     "jail": 0,
-    "text": ""
+    "minfine": 0,
+    "minjail": 0
+  },
+  "6.2KD": {
+    "fine": 1000,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 1000,
+    "minjail": 30
   },
   "1.1KK": {
     "fine": 650,
     "pp": 0,
     "jail": 30,
-    "text": ""
+    "minfine": 50,
+    "minjail": 0
   },
   "1.2KK": {
     "fine": 0,
     "pp": 0,
     "jail": 20,
-    "text": ""
+    "minfine": 0,
+    "minjail": 0
   },
   "1.8KK": {
     "fine": 0,
     "pp": 0,
     "jail": 10,
-    "text": ""
+    "minfine": 0,
+    "minjail": 0
   },
   "1.12KK": {
     "fine": 0,
     "pp": 0,
     "jail": 15,
-    "text": ""
+    "minfine": 0,
+    "minjail": 0
   },
   "2.1KK": {
     "fine": 0,
     "pp": 0,
     "jail": 60,
-    "text": ""
-  },
-  "3.3KK": {
-    "fine": 0,
-    "pp": 0,
-    "jail": 25,
-    "text": ""
-  },
-  "3.41KK": {
-    "fine": 5000,
-    "pp": 0,
-    "jail": 30,
-    "text": ""
+    "minfine": 0,
+    "minjail": 30
   },
   "2.2KK": {
     "fine": 0,
     "pp": 0,
     "jail": 90,
-    "text": ""
+    "minfine": 0,
+    "minjail": 60
+  },
+  "3.3KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 25,
+    "minfine": 0,
+    "minjail": 0
+  },
+  "3.41KK": {
+    "fine": 5000,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 5000,
+    "minjail": 30
   }
 }

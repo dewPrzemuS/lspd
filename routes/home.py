@@ -1,7 +1,7 @@
+import json
 import os
 
-from flask import Blueprint, redirect, render_template, request
-import json
+from flask import Blueprint, render_template, request
 
 jsonFile = open(f"{os.path.dirname(os.path.realpath(__file__))}/data.json")
 
@@ -9,8 +9,6 @@ data = json.loads(jsonFile.read())
 
 home_bp = Blueprint('Home', __name__)
 
-global version
-version = "1.1"
 
 def getalnum(string):
     alphanumeric = [character for character in string if character.isalnum()]
@@ -41,11 +39,16 @@ def homepost():
         if value is None:
             continue
         fine += (data[value]["fine"] / division)
-        pp += (data[value]["pp"] / division)
+        pp += data[value]["pp"]
         jail += (data[value]["jail"] / division)
         fine = round(fine)
         pp = round(pp)
         jail = round(jail)
+        if fine < data[value]["minfine"]:
+            fine = data[value]["minfine"]
+        if jail < data[value]["minjail"]:
+            jail = data[value]["minjail"]
     if fine == 0 and pp == 0 and jail == 0:
         display = False
-    return render_template("index.html", data=data, getalnum=getalnum, len=len, fine=fine, pp=pp, jail=jail, display=display, round=round, version=version)
+    return render_template("index.html", data=data, getalnum=getalnum, len=len, fine=fine, pp=pp, jail=jail,
+                           display=display, round=round)

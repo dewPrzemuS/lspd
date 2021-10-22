@@ -65,9 +65,8 @@
                             {% endfor %}
 
                         </div>
-                        <input type="range" class="form-range" min="0" max="2" id="customRange2" name="range">
-                        <label for="customRange2" class="rangeTextLeft" id="rangeTextLeft">Łagodna kara</label>
-                        <label for="customRange2" class="rangeTextRight" id="rangeTextRight">Maksymalna kara</label>
+                        <input type="range" class="form-range" min="0" max="2" id="range" name="range">
+                        <label for="range" class="rangeText" id="rangeText">Łagodna kara</label>
                         {% if display == True %}
                             <div class="penalty" id="penalty">
                                 <h1 class="postheader">Kara:</h1>
@@ -113,18 +112,17 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Aktualizacja 1.1</h5>
+                <h5 class="modal-title" id="changeLogModalLabel">Aktualizacja 1.1</h5>
             </div>
             <div class="modal-body">
-                1. Dodano 2.2KK.
+                1. Zastąpiono małe napisy pod wskażnikiem wysokości kary, większym napisem, który wskazuje jaką karę
+                aktualnie mamy zaznaczoną.
                 <br>
-                2. Dodano minuty obok pieniędzy, które oznaczają ile gracz powinien odsiedzieć za odmowę mandatu.
+                2. Zniwelowano błąd, który zmniejszał również wysokość kary w punktach karnych.
                 <br>
-                3. Dodano listę zmian.
+                3. Poprawiono kolejność wyświetlania podpunktów.
                 <br>
-                4. Poprawiono wyświetlanie niektórych elementów strony na mniejszych urządzeniach.
-                <br>
-                5. Dodano automatyczne wyświetlanie listy zmian.
+                4. Dodano regulaminowe "widełki", więc kara nigdy nie będzie zbyt niska.
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Zamknij</button>
@@ -138,12 +136,18 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 <script type="module">
-    var currentVersion = "1.1"
+    var currentVersion = "1.1.1"
 
     var textLeft = document.getElementById("rangeTextLeft")
     var textRight = document.getElementById("rangeTextRight")
     var penalty = document.getElementById("penalty")
+    var range = document.getElementById("range")
+    var rangeText = document.getElementById("rangeText")
     var changeLog = new bootstrap.Modal(document.getElementById('changeLogModal'))
+    var changeLogLabel = document.getElementById('changeLogModalLabel')
+
+    changeLogLabel.innerHTML = `Aktualizacja ${currentVersion}`
+
     import Cookies from '{{ url_for('static', filename='js.cookie.mjs') }}'
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'), null)
@@ -165,29 +169,26 @@
         return 'xxl'
     }
 
-    function changeTextVisible() {
-        try {
-            if (getViewport() == 'sm' || getViewport() == "xs") {
-                textLeft.style.display = "none"
-                textRight.style.display = "none"
-                penalty.style.marginTop = "20px"
-            } else {
-                textLeft.style.display = "flex"
-                textRight.style.display = "flex"
-                penalty.style.marginTop = "35px"
-            }
-        } catch (e) {
-        }
-
-    }
-
-    window.onresize = changeTextVisible;
-    changeTextVisible()
-
     if (Cookies.get("lastVersion") != currentVersion) {
         changeLog.show()
     }
     Cookies.set("lastVersion", currentVersion, {expires: 3652})
+
+    function rangeTextChange() {
+        if (range.value == 0) {
+            rangeText.innerHTML = "Najniższa kara."
+        }
+        if (range.value == 1) {
+            rangeText.innerHTML = "Zwykła kara."
+        }
+        if (range.value == 2) {
+            rangeText.innerHTML = "Najwyższa kara."
+        }
+    }
+
+    range.addEventListener("input", rangeTextChange)
+
+    rangeTextChange()
 </script>
 
 
