@@ -9,7 +9,8 @@ data = json.loads(jsonFile.read())
 
 home_bp = Blueprint('Home', __name__)
 
-
+global version
+version = "1.1"
 
 def getalnum(string):
     alphanumeric = [character for character in string if character.isalnum()]
@@ -47,4 +48,4 @@ def homepost():
         jail = round(jail)
     if fine == 0 and pp == 0 and jail == 0:
         display = False
-    return render_template("index.html", data=data, getalnum=getalnum, len=len, fine=fine, pp=pp, jail=jail, display=display)
+    return render_template("index.html", data=data, getalnum=getalnum, len=len, fine=fine, pp=pp, jail=jail, display=display, round=round, version=version)

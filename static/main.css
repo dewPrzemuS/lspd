@@ -3,16 +3,14 @@
 }
 
 .btn {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+    margin-top: 7.5px;
+    width: 100%;
 }
 
 body {
     padding: 10px;
     background-color: #242424;
+    color: #fff;
 }
 
 .card {
@@ -85,4 +83,24 @@ body {
     text-align: center;
     justify-content: center;
     align-items: center;
+}
+
+.penalty {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.modal-content {
+    background-color: #404040;
+}
+
+.modal-footer {
+    border-top: None;
+    padding: .75rem;
+    padding-top: 0px !important;
+}
+
+.modal-body {
+    padding: 1rem;
+    padding-bottom: 0.5rem !important;
 }

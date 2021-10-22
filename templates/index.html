@@ -14,9 +14,8 @@
     />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
+
+
     <link
             href="{{ url_for('static', filename = '/main.css') }}"
             rel="stylesheet"
@@ -29,7 +28,7 @@
         {% block body %}
             <form action="/" method="POST" id="checkboxes">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="card-header text-center">
                                 Kodeks Drogowy
@@ -48,7 +47,7 @@
 
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="card-header text-center">
                                 Kodeks Karny
@@ -67,49 +66,130 @@
 
                         </div>
                         <input type="range" class="form-range" min="0" max="2" id="customRange2" name="range">
-                        <label for="customRange2" class="rangeTextLeft">Łagodna kara</label>
-                        <label for="customRange2" class="rangeTextRight">Maksymalna kara</label>
+                        <label for="customRange2" class="rangeTextLeft" id="rangeTextLeft">Łagodna kara</label>
+                        <label for="customRange2" class="rangeTextRight" id="rangeTextRight">Maksymalna kara</label>
                         {% if display == True %}
-                            <h1 class="postheader">Kara:</h1>
-                            <div class="col">
-                                <h2 class="postsecondheader">Pieniądze: {{ fine }}</h2>
-                            </div>
-                            <div class="col">
-                                <h2 class="postsecondheader">Punkty karne: {{ pp }}</h2>
-                            </div>
-                            <div class="col">
-                                <h2 class="postsecondheader">Więzienie: {{ jail }}</h2>
+                            <div class="penalty" id="penalty">
+                                <h1 class="postheader">Kara:</h1>
+                                <div class="col">
+                                    <h2 class="postsecondheader" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Liczba w nawiasie oznacza ilość minut, którą powinna odsiedzieć osoba odmawiająca przyjęcia mandatu.">
+                                        Pieniądze: {{ fine }} ({{ round(fine / 10) }})</h2>
+                                </div>
+                                <div class="col">
+                                    <h2 class="postsecondheader">Punkty karne: {{ pp }}</h2>
+                                </div>
+                                <div class="col">
+                                    <h2 class="postsecondheader">Więzienie: {{ jail }}</h2>
+                                </div>
                             </div>
                         {% endif %}
                     </div>
-                    <button type="submit" class="btn btn-success">Oblicz</button>
+
 
                 </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-sm-8">
+                            <button type="submit" class="btn btn-success">Oblicz
+                            </button>
+                        </div>
+                        <div class="col-lg-2 col-sm-4">
+                            <button type="button" class="btn btn-primary" id="changeLog" data-bs-toggle="modal"
+                                    data-bs-target="#changeLogModal">Lista zmian
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
             </form>
         {% endblock %}
 
     </div>
 </div>
+
+<div class="modal fade" id="changeLogModal" tabindex="-1" aria-labelledby="changeLogLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Aktualizacja 1.1</h5>
+            </div>
+            <div class="modal-body">
+                1. Dodano 2.2KK.
+                <br>
+                2. Dodano minuty obok pieniędzy, które oznaczają ile gracz powinien odsiedzieć za odmowę mandatu.
+                <br>
+                3. Dodano listę zmian.
+                <br>
+                4. Poprawiono wyświetlanie niektórych elementów strony na mniejszych urządzeniach.
+                <br>
+                5. Dodano automatyczne wyświetlanie listy zmian.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Zamknij</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="module" src="{{ url_for('static', filename='js.cookie.mjs') }}"></script>
+<script nomodule defer src="{{ url_for('static', filename='js.cookie.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script type="module">
+    var currentVersion = "1.1"
+
+    var textLeft = document.getElementById("rangeTextLeft")
+    var textRight = document.getElementById("rangeTextRight")
+    var penalty = document.getElementById("penalty")
+    var changeLog = new bootstrap.Modal(document.getElementById('changeLogModal'))
+    import Cookies from '{{ url_for('static', filename='js.cookie.mjs') }}'
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'), null)
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+    function getViewport() {
+        // https://stackoverflow.com/a/8876069
+        const width = Math.max(
+            document.documentElement.clientWidth,
+            window.innerWidth || 0
+        )
+        if (width <= 576) return 'xs'
+        if (width <= 768) return 'sm'
+        if (width <= 992) return 'md'
+        if (width <= 1200) return 'lg'
+        if (width <= 1400) return 'xl'
+        return 'xxl'
+    }
+
+    function changeTextVisible() {
+        try {
+            if (getViewport() == 'sm' || getViewport() == "xs") {
+                textLeft.style.display = "none"
+                textRight.style.display = "none"
+                penalty.style.marginTop = "20px"
+            } else {
+                textLeft.style.display = "flex"
+                textRight.style.display = "flex"
+                penalty.style.marginTop = "35px"
+            }
+        } catch (e) {
+        }
+
+    }
+
+    window.onresize = changeTextVisible;
+    changeTextVisible()
+
+    if (Cookies.get("lastVersion") != currentVersion) {
+        changeLog.show()
+    }
+    Cookies.set("lastVersion", currentVersion, {expires: 3652})
+</script>
+
+
 </body>
-
-
-{#<body class="text-center">#}
-{#<div class="d-flex align-items-center justify-content-center mx-auto">#}
-{#    {% block body %}#}
-{#        <main role="main" class="inner cover">#}
-{#        <form action='/' method='POST' id='checkboxes'>#}
-{#            {% for d in data %}#}
-{#                <input#}
-{#                        class="form-check-input"#}
-{#                        type="checkbox"#}
-{#                        id="inlineCheckbox{{ getalnum(d) }}"#}
-{#                        value="option{{ getalnum(d) }}"#}
-{#                />#}
-{#                <label class="form-check-label" for="inlineCheckbox">{{ d }}</label>#}
-{#            {% endfor %}#}
-{#        </form>#}
-{#    {% endblock %}#}
-{#    </main>#}
-{#</div>#}
-{#</body>#}
 </html>
