@@ -188,6 +188,13 @@
     "minfine": 0,
     "minjail": 0
   },
+  "1.6KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 15,
+    "minfine": 0,
+    "minjail": 0
+  },
   "1.8KK": {
     "fine": 0,
     "pp": 0,
@@ -220,6 +227,13 @@
     "fine": 0,
     "pp": 0,
     "jail": 25,
+    "minfine": 0,
+    "minjail": 0
+  },
+  "3.39KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 30,
     "minfine": 0,
     "minjail": 0
   },

@@ -1,16 +1,41 @@
 import json
 import os
 
-import firebase_admin
-from firebase_admin import credentials, db
+jsonFileMySQL = open(f"{os.path.dirname(os.path.realpath(__file__))}/special/mysql.json")
+sql = json.loads(jsonFileMySQL.read())
 
-cred = credentials.Certificate(
-    f"{os.path.dirname(os.path.realpath(__file__))}/special/prl-lspd-firebase-adminsdk-h4h4b-0c8982594e.json")
-firebase = firebase_admin.initialize_app(cred, {
-    "databaseURL": "https://prl-lspd-default-rtdb.europe-west1.firebasedatabase.app/"
-})
+import mysql.connector
 
-main = db.reference("/")
+db = mysql.connector.connect(
+    host=sql["host"],
+    user="uefh3c1k7ynedfai",
+    password=sql["password"],
+    database="b2wphrwtexyixckyex1x"
+)
+
+cursor = db.cursor()
+
+
+def addEnter(ip, date, method):
+    sql = "INSERT INTO entries (ip, date, method) VALUES (%s, %s, %s)"
+    val = (ip, date, method)
+    cursor.execute(sql, val)
+    db.commit()
+
+
+def addPenalty(ip, date, range, selected):
+    sql = "INSERT INTO penalties (ip, date, penaltyRange, selected) VALUES (%s, %s, %s, %s)"
+    val = (ip, date, range, selected)
+    cursor.execute(sql, val)
+    db.commit()
+
+
+def getPenalties():
+    sql = "SELECT penaltyRange FROM penalties"
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    return result
+
 
 jsonFileData = open(f"{os.path.dirname(os.path.realpath(__file__))}/data.json")
 data = json.loads(jsonFileData.read())
