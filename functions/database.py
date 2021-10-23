@@ -14,7 +14,7 @@ jsonFileSSH = open(f"{os.path.dirname(os.path.realpath(__file__))}/special/ssh.j
 ssh = json.loads(jsonFileSSH.read())
 
 with sshtunnel.SSHTunnelForwarder(
-        ("ssh.eu.pythonanywhere.com", 3306),
+        ("ssh.eu.pythonanywhere.com", 22),
         ssh_username=ssh["username"],
         ssh_password=ssh["password"],
         remote_bind_address=(sql["host"], 3306)
