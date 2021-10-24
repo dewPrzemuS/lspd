@@ -8,9 +8,9 @@ sql = json.loads(jsonFileMySQL.read())
 
 db = mysql.connector.connect(
     host=sql["host"],
-    user="lspd",
+    user=sql["user"],
     password=sql["password"],
-    database="lspd",
+    database=sql["database"],
     auth_plugin="mysql_native_password"
 )
 
