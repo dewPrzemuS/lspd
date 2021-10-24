@@ -8,9 +8,9 @@ sql = json.loads(jsonFileMySQL.read())
 
 db = mysql.connector.connect(
     host=sql["host"],
-    user="uefh3c1k7ynedfai",
+    user="lspd",
     password=sql["password"],
-    database="b2wphrwtexyixckyex1x"
+    database="lspd"
 )
 
 cursor = db.cursor()
