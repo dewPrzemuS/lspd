@@ -1,11 +1,11 @@
 import json
 import os
 
+import mysql.connector
 import sshtunnel
 
 sshtunnel.SSH_TIMEOUT = 15.0
 sshtunnel.TUNNEL_TIMEOUT = 15.0
-import mysql.connector
 
 jsonFileMySQL = open(f"{os.path.dirname(os.path.realpath(__file__))}/special/mysql.json")
 sql = json.loads(jsonFileMySQL.read())
