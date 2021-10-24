@@ -10,7 +10,8 @@ db = mysql.connector.connect(
     host=sql["host"],
     user="lspd",
     password=sql["password"],
-    database="lspd"
+    database="lspd",
+    auth_plugin="mysql_native_password"
 )
 
 cursor = db.cursor()
