@@ -3,6 +3,7 @@ from datetime import datetime
 from flask import Blueprint, render_template, request
 
 from functions.database import data, addEnter, addPenalty, getPenalties
+from functions.other import getIP
 
 home_bp = Blueprint('Home', __name__)
 
@@ -24,7 +25,7 @@ def homeget():
     global howMany
     howMany = 0
 
-    addEnter(request.environ['REMOTE_ADDR'], today.strftime("%d.%m.%Y %H:%M:%S"), "GET")
+    addEnter(getIP(), today.strftime("%d.%m.%Y %H:%M:%S"), "GET")
 
     results = getPenalties()
     for result in results:
@@ -93,8 +94,8 @@ def homepost():
     for select in selected:
         stringSelected += f"{select} "
 
-    addEnter(request.environ['REMOTE_ADDR'], today.strftime("%d.%m.%Y %H:%M:%S"), "POST")
-    addPenalty(request.environ['REMOTE_ADDR'], today.strftime("%d.%m.%Y %H:%M:%S"), request.form.get("range"),
+    addEnter(getIP(), today.strftime("%d.%m.%Y %H:%M:%S"), "POST")
+    addPenalty(getIP(), today.strftime("%d.%m.%Y %H:%M:%S"), request.form.get("range"),
                stringSelected)
 
     results = getPenalties()
