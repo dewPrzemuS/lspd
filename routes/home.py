@@ -25,7 +25,7 @@ def homeget():
     global howMany
     howMany = 0
 
-    addEnter(getIP()[0], today.strftime("%d.%m.%Y %H:%M:%S"), "GET")
+    addEnter(getIP()[1], today.strftime("%d.%m.%Y %H:%M:%S"), "GET")
 
     results = getPenalties()
     for result in results:
@@ -94,8 +94,8 @@ def homepost():
     for select in selected:
         stringSelected += f"{select} "
 
-    addEnter(getIP()[0], today.strftime("%d.%m.%Y %H:%M:%S"), "POST")
-    addPenalty(getIP()[0], today.strftime("%d.%m.%Y %H:%M:%S"), request.form.get("range"),
+    addEnter(getIP()[1], today.strftime("%d.%m.%Y %H:%M:%S"), "POST")
+    addPenalty(getIP()[1], today.strftime("%d.%m.%Y %H:%M:%S"), request.form.get("range"),
                stringSelected)
 
     results = getPenalties()
