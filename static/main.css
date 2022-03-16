@@ -98,3 +98,15 @@ body {
     padding: 1rem;
     padding-bottom: 0.5rem !important;
 }
+
+.form-select {
+    margin-bottom: 15px;
+}
+
+.modal-body {
+    padding-bottom: 1rem !important;
+}
+
+#sendReportButton {
+    margin-top: 0px !important;
+}

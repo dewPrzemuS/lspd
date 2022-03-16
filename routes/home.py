@@ -2,8 +2,7 @@ from datetime import datetime
 
 from flask import Blueprint, render_template, request
 
-from functions.database import data, addEnter, addPenalty, getPenalties
-from functions.other import getIP
+from functions.other import data
 
 home_bp = Blueprint('Home', __name__)
 
@@ -25,22 +24,20 @@ def homeget():
     global howMany
     howMany = 0
 
-    addEnter(getIP(), today.strftime("%d.%m.%Y %H:%M:%S"), "GET")
-
-    results = getPenalties()
-    for result in results:
-        value = result[0]
-        if value == "0":
-            amount0 += 1
-        if value == "1":
-            amount1 += 1
-        if value == "2":
-            amount2 += 1
-        howMany += 1
-    if howMany > 0:
-        amount0 = round((amount0 / howMany) * 100)
-        amount1 = round((amount1 / howMany) * 100)
-        amount2 = round((amount2 / howMany) * 100)
+    # results = getPenalties()
+    # for result in results:
+    #     value = result[0]
+    #     if value == "0":
+    #         amount0 += 1
+    #     if value == "1":
+    #         amount1 += 1
+    #     if value == "2":
+    #         amount2 += 1
+    #     howMany += 1
+    # if howMany > 0:
+    #     amount0 = round((amount0 / howMany) * 100)
+    #     amount1 = round((amount1 / howMany) * 100)
+    #     amount2 = round((amount2 / howMany) * 100)
 
     return render_template("index.html", data=data, getalnum=getalnum, len=len, amount0=amount0, amount1=amount1,
                            amount2=amount2)
@@ -94,24 +91,20 @@ def homepost():
     for select in selected:
         stringSelected += f"{select} "
 
-    addEnter(getIP(), today.strftime("%d.%m.%Y %H:%M:%S"), "POST")
-    addPenalty(getIP(), today.strftime("%d.%m.%Y %H:%M:%S"), request.form.get("range"),
-               stringSelected)
-
-    results = getPenalties()
-    for result in results:
-        value = result[0]
-        if value == "0":
-            amount0 += 1
-        if value == "1":
-            amount1 += 1
-        if value == "2":
-            amount2 += 1
-        howMany += 1
-    if howMany > 0:
-        amount0 = round((amount0 / howMany) * 100)
-        amount1 = round((amount1 / howMany) * 100)
-        amount2 = round((amount2 / howMany) * 100)
+    # results = getPenalties()
+    # for result in results:
+    #     value = result[0]
+    #     if value == "0":
+    #         amount0 += 1
+    #     if value == "1":
+    #         amount1 += 1
+    #     if value == "2":
+    #         amount2 += 1
+    #     howMany += 1
+    # if howMany > 0:
+    #     amount0 = round((amount0 / howMany) * 100)
+    #     amount1 = round((amount1 / howMany) * 100)
+    #     amount2 = round((amount2 / howMany) * 100)
 
     return render_template("index.html", data=data, getalnum=getalnum, len=len, fine=fine, pp=pp, jail=jail,
                            display=display, round=round, amount0=amount0, amount1=amount1,
