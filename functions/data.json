@@ -4,244 +4,903 @@
     "pp": 4,
     "jail": 0,
     "minfine": 100,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.2KD": {
     "fine": 350,
     "pp": 6,
     "jail": 0,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.3KD": {
     "fine": 850,
     "pp": 7,
     "jail": 0,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.4KD": {
     "fine": 1000,
     "pp": 0,
     "jail": 0,
     "minfine": 1000,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.5KD": {
     "fine": 75,
     "pp": 0,
     "jail": 0,
     "minfine": 20,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.6KD": {
     "fine": 700,
     "pp": 24,
     "jail": 30,
     "minfine": 700,
-    "minjail": 30
+    "minjail": 30,
+    "jailorfine": false
   },
   "1.7KD": {
     "fine": 100,
     "pp": 3,
     "jail": 0,
     "minfine": 100,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.8KD": {
     "fine": 250,
     "pp": 7,
     "jail": 0,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.9KD": {
     "fine": 500,
     "pp": 8,
     "jail": 0,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.10KD": {
     "fine": 500,
     "pp": 5,
     "jail": 0,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.12KD": {
     "fine": 1500,
     "pp": 8,
     "jail": 0,
     "minfine": 500,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.13KD": {
     "fine": 1000,
     "pp": 5,
     "jail": 0,
     "minfine": 300,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.14KD": {
     "fine": 10000,
     "pp": 15,
     "jail": 30,
     "minfine": 5000,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": true
   },
   "1.15KD": {
     "fine": 500,
     "pp": 3,
     "jail": 0,
     "minfine": 500,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.16KD": {
     "fine": 750,
     "pp": 7,
     "jail": 0,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.17KD": {
     "fine": 1000,
     "pp": 10,
     "jail": 0,
     "minfine": 1000,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "1.18KD": {
+    "fine": 100,
+    "pp": 0,
+    "jail": 0,
+    "minfine": 100,
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.21KD": {
     "fine": 250,
     "pp": 3,
     "jail": 0,
     "minfine": 100,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.23KD": {
     "fine": 200,
     "pp": 2,
     "jail": 0,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "2.1KD": {
+    "fine": 300,
+    "pp": 8,
+    "jail": 0,
+    "minfine": 100,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "2.2KD": {
+    "fine": 350,
+    "pp": 6,
+    "jail": 0,
+    "minfine": 100,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "2.3KD": {
+    "fine": 150,
+    "pp": 2,
+    "jail": 0,
+    "minfine": 50,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "2.4KD": {
+    "fine": 200,
+    "pp": 4,
+    "jail": 0,
+    "minfine": 200,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "2.5KD": {
+    "fine": 350,
+    "pp": 5,
+    "jail": 0,
+    "minfine": 350,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "2.6KD": {
+    "fine": 350,
+    "pp": 4,
+    "jail": 0,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.1KD": {
+    "fine": 250,
+    "pp": 4,
+    "jail": 0,
+    "minfine": 50,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.2KD": {
+    "fine": 400,
+    "pp": 5,
+    "jail": 0,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.3KD": {
+    "fine": 250,
+    "pp": 2,
+    "jail": 0,
+    "minfine": 250,
+    "minjail": 0,
+    "jailorfine": false
   },
   "3.4KD": {
     "fine": 500,
     "pp": 6,
     "jail": 0,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.5KD": {
+    "fine": 300,
+    "pp": 4,
+    "jail": 0,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
   },
   "4.1KD": {
     "fine": 800,
     "pp": 8,
     "jail": 0,
     "minfine": 100,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "4.2KD": {
     "fine": 2500,
     "pp": 0,
     "jail": 45,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": true
+  },
+  "4.3KD": {
+    "fine": 100,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": true
   },
   "5.1KD": {
     "fine": 5000,
     "pp": 15,
     "jail": 0,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "5.3KD": {
     "fine": 1000,
     "pp": 0,
     "jail": 0,
     "minfine": 500,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "6.1KD": {
     "fine": 500,
     "pp": 10,
     "jail": 0,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "6.2KD": {
     "fine": 1000,
     "pp": 0,
     "jail": 30,
     "minfine": 1000,
-    "minjail": 30
+    "minjail": 30,
+    "jailorfine": false
   },
   "1.1KK": {
     "fine": 650,
     "pp": 0,
-    "jail": 30,
+    "jail": 0,
     "minfine": 50,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.2KK": {
-    "fine": 0,
+    "fine": 1000,
     "pp": 0,
     "jail": 20,
-    "minfine": 0,
-    "minjail": 0
+    "minfine": 100,
+    "minjail": 0,
+    "jailorfine": true
+  },
+  "1.3KK": {
+    "fine": 500,
+    "pp": 0,
+    "jail": 0,
+    "minfine": 50,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "1.4KK": {
+    "fine": 850,
+    "pp": 0,
+    "jail": 0,
+    "minfine": 50,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "1.5KK": {
+    "fine": 2000,
+    "pp": 0,
+    "jail": 0,
+    "minfine": 50,
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.6KK": {
     "fine": 0,
     "pp": 0,
     "jail": 15,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "1.7KK": {
+    "fine": 1000,
+    "pp": 0,
+    "jail": 0,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.8KK": {
-    "fine": 0,
+    "fine": 650,
     "pp": 0,
     "jail": 10,
+    "minfine": 50,
+    "minjail": 0,
+    "jailorfine": true
+  },
+  "1.9KK": {
+    "fine": 450,
+    "pp": 0,
+    "jail": 15,
+    "minfine": 450,
+    "minjail": 15,
+    "jailorfine": false
+  },
+  "1.10KK": {
+    "fine": 400,
+    "pp": 0,
+    "jail": 0,
+    "minfine": 100,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "1.11KK": {
+    "fine": 300,
+    "pp": 0,
+    "jail": 0,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "1.12KK": {
     "fine": 0,
     "pp": 0,
     "jail": 15,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "1.13KK": {
+    "fine": 200,
+    "pp": 0,
+    "jail": 15,
+    "minfine": 50,
+    "minjail": 0,
+    "jailorfine": true
+  },
+  "1.14KK": {
+    "fine": 500,
+    "pp": 0,
+    "jail": 0,
+    "minfine": 250,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "1.15KK": {
+    "fine": 500,
+    "pp": 0,
+    "jail": 0,
+    "minfine": 150,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "1.16KK": {
+    "fine": 250,
+    "pp": 0,
+    "jail": 0,
+    "minfine": 150,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "1.17KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 20,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "1.18KK": {
+    "fine": 300,
+    "pp": 0,
+    "jail": 0,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
   },
   "2.1KK": {
     "fine": 0,
     "pp": 0,
     "jail": 60,
     "minfine": 0,
-    "minjail": 30
+    "minjail": 30,
+    "jailorfine": false
   },
   "2.2KK": {
     "fine": 0,
     "pp": 0,
     "jail": 90,
     "minfine": 0,
-    "minjail": 60
+    "minjail": 60,
+    "jailorfine": false
+  },
+  "2.3KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 40,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "2.4KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 20,
+    "minfine": 0,
+    "minjail": 10,
+    "jailorfine": false
+  },
+  "2.5KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 20,
+    "minfine": 0,
+    "minjail": 10,
+    "jailorfine": false
+  },
+  "2.6KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 45,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "2.7KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "2.8KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 60,
+    "minfine": 0,
+    "minjail": 35,
+    "jailorfine": false
+  },
+  "2.9KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 15,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "2.10KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 20,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "2.11KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 40,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "2.12KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 60,
+    "minfine": 0,
+    "minjail": 30,
+    "jailorfine": false
+  },
+  "3.1KK": {
+    "fine": 1000,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 200,
+    "minjail": 0,
+    "jailorfine": true
+  },
+  "3.2KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 50,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
   },
   "3.3KK": {
     "fine": 0,
     "pp": 0,
     "jail": 25,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.4KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.5KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 15,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.6KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 150,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.7KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.8KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 200,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.9KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 200,
+    "minfine": 0,
+    "minjail": 100,
+    "jailorfine": false
+  },
+  "3.10KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 200,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.11KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 35,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.12KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 20,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.13KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 40,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.17KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 15,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.18KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 40,
+    "minfine": 0,
+    "minjail": 15,
+    "jailorfine": false
+  },
+  "3.19KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 0,
+    "minjail": 15,
+    "jailorfine": false
+  },
+  "3.20KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 0,
+    "minjail": 20,
+    "jailorfine": false
+  },
+  "3.21KK": {
+    "fine": 800,
+    "pp": 0,
+    "jail": 10,
+    "minfine": 200,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.22KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 25,
+    "minfine": 0,
+    "minjail": 10,
+    "jailorfine": false
+  },
+  "3.23KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.24KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 40,
+    "minfine": 0,
+    "minjail": 20,
+    "jailorfine": false
+  },
+  "3.25KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 20,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.27KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 40,
+    "minfine": 0,
+    "minjail": 20,
+    "jailorfine": false
+  },
+  "3.28KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.29KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 20,
+    "minfine": 0,
+    "minjail": 40,
+    "jailorfine": false
+  },
+  "3.30KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 75,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.32KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 100,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.33KK": {
+    "fine": 500,
+    "pp": 0,
+    "jail": 0,
+    "minfine": 50,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.34KK": {
+    "fine": 600,
+    "pp": 0,
+    "jail": 15,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.35KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 15,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.36KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 60,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.37KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "3.38KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 0,
+    "minjail": 15,
+    "jailorfine": false
   },
   "3.39KK": {
     "fine": 0,
     "pp": 0,
     "jail": 30,
     "minfine": 0,
-    "minjail": 0
+    "minjail": 0,
+    "jailorfine": false
   },
   "3.41KK": {
     "fine": 5000,
     "pp": 0,
     "jail": 30,
     "minfine": 5000,
-    "minjail": 30
+    "minjail": 30,
+    "jailorfine": false
+  },
+  "3.42KK": {
+    "fine": 1000,
+    "pp": 0,
+    "jail": 10,
+    "minfine": 0,
+    "minjail": 10,
+    "jailorfine": true
+  },
+  "4.4KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 20,
+    "minfine": 0,
+    "minjail": 10,
+    "jailorfine": false
+  },
+  "5.1KK": {
+    "fine": 20000,
+    "pp": 0,
+    "jail": 60,
+    "minfine": 0,
+    "minjail": 10,
+    "jailorfine": true
+  },
+  "5.2KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 250,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": false
+  },
+  "5.3KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 70,
+    "minfine": 0,
+    "minjail": 10,
+    "jailorfine": false
+  },
+  "5.21KK": {
+    "fine": 2500,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 0,
+    "minjail": 0,
+    "jailorfine": true
+  },
+  "7.6KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 0,
+    "minjail": 30,
+    "jailorfine": false
+  },
+  "7.7KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 30,
+    "minfine": 0,
+    "minjail": 30,
+    "jailorfine": false
+  },
+  "8.4KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 60,
+    "minfine": 0,
+    "minjail": 30,
+    "jailorfine": false
+  },
+  "8.5KK": {
+    "fine": 0,
+    "pp": 0,
+    "jail": 70,
+    "minfine": 0,
+    "minjail": 20,
+    "jailorfine": false
+  },
+  "10.2KK": {
+    "fine": 2000,
+    "pp": 0,
+    "jail": 10,
+    "minfine": 500,
+    "minjail": 5,
+    "jailorfine": true
   }
 }

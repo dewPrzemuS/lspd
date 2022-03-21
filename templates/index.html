@@ -110,26 +110,6 @@
 
     </div>
 </div>
-
-<div aria-hidden="true" aria-labelledby="changeLogLabel" class="modal fade" id="changeLogModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="changeLogModalLabel">Aktualizacja</h5>
-            </div>
-            <div class="modal-body">
-                1. Przywróciłem stronę do działania.
-                <br>
-                2. Usunięto zaawansowany system logów.
-                <br>
-                3. Usunięto przymusowe logowanie za pomocą konta Discord.
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-danger" data-bs-dismiss="modal" type="button">Zamknij</button>
-            </div>
-        </div>
-    </div>
-</div>
 <script src="{{ url_for('static', filename='js.cookie.mjs') }}" type="module"></script>
 <script defer nomodule src="{{ url_for('static', filename='js.cookie.js') }}"></script>
 <script crossorigin="anonymous"
@@ -138,29 +118,16 @@
 <script type="module">
 
     //region Imports and Variables
-    var currentVersion = "1.1.5"
+    var currentVersion = "1.1.6"
     var textLeft = document.getElementById("rangeTextLeft")
     var textRight = document.getElementById("rangeTextRight")
     var penalty = document.getElementById("penalty")
     var range = document.getElementById("range")
     var rangeText = document.getElementById("rangeText")
-    var changeLog = new bootstrap.Modal(document.getElementById('changeLogModal'))
-    var changeLogLabel = document.getElementById('changeLogModalLabel')
-    changeLogLabel.innerHTML = `Aktualizacja ${currentVersion}`
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'), null)
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
-    import Cookies from '{{ url_for('static', filename='js.cookie.mjs') }}'
-    //endregion
-
-    //region Cookie Stuff
-
-    if (Cookies.get("lastVersion") != currentVersion) {
-        //changeLog.show()
-    }
-    Cookies.set("lastVersion", currentVersion, {expires: 3652})
-
     //endregion
 
     //region Visuals

@@ -83,6 +83,11 @@ def homepost():
             fine = data[value]["minfine"]
         if jail < data[value]["minjail"]:
             jail = data[value]["minjail"]
+        if data[value]["jailorfine"]:
+            if request.form.get("range") != "2":
+                jail = 0
+            else:
+                fine = 0
     if fine == 0 and pp == 0 and jail == 0:
         display = False
 
@@ -90,6 +95,7 @@ def homepost():
     stringSelected = ""
     for select in selected:
         stringSelected += f"{select} "
+
 
     # results = getPenalties()
     # for result in results:
