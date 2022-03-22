@@ -55,6 +55,7 @@
                             </button>
                             <input class="form-range" id="range" max="2" min="0" name="range" type="range">
                             <label class="rangeText" for="range" id="rangeText">Zwykła kara.</label>
+                            {% if display == True %}
                             <div class="penalty" id="penalty">
                                 <h1 class="postheader">Kara:</h1>
                                 <div class="col">
@@ -73,10 +74,9 @@
                                         {{ ppkdkk }} {% endfor %}</h2>
                                 </div>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
-                    {% if display == True %}
-                    {% endif %}
                 </div>
                 <div class="col-md-6">
                     <div class="card">
@@ -168,6 +168,7 @@
     range.addEventListener("input", rangeTextChange)
 
     rangeTextChange()
+
 
 
 
