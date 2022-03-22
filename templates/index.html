@@ -49,6 +49,34 @@
                         {% endfor %}
 
                     </div>
+                    <div class="container">
+                        <div class="row">
+                            <button class="btn btn-success" type="submit">Oblicz
+                            </button>
+                            <input class="form-range" id="range" max="2" min="0" name="range" type="range">
+                            <label class="rangeText" for="range" id="rangeText">Zwykła kara.</label>
+                            <div class="penalty" id="penalty">
+                                <h1 class="postheader">Kara:</h1>
+                                <div class="col">
+                                    <h2 class="postsecondheader" data-bs-placement="top" data-bs-toggle="tooltip"
+                                        title="Liczba w nawiasie oznacza ilość minut, którą powinna odsiedzieć osoba odmawiająca przyjęcia mandatu.">
+                                        Pieniądze: {{ fine }} ({{ round(fine / 10) }})</h2>
+                                </div>
+                                <div class="col">
+                                    <h2 class="postsecondheader">Punkty karne: {{ pp }}</h2>
+                                </div>
+                                <div class="col">
+                                    <h2 class="postsecondheader">Więzienie: {{ jail }}</h2>
+                                </div>
+                                <div class="col">
+                                    <h2 class="postsecondheader">Podpunkty: {% for ppkdkk in selected %}
+                                        {{ ppkdkk }} {% endfor %}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if display == True %}
+                    {% endif %}
                 </div>
                 <div class="col-md-6">
                     <div class="card">
@@ -69,38 +97,6 @@
                         {% endfor %}
 
                     </div>
-                    <input class="form-range" id="range" max="2" min="0" name="range" type="range">
-                    <label class="rangeText" for="range" id="rangeText">Zwykła kara.</label>
-                    {% if display == True %}
-                    <div class="penalty" id="penalty">
-                        <h1 class="postheader">Kara:</h1>
-                        <div class="col">
-                            <h2 class="postsecondheader" data-bs-placement="top" data-bs-toggle="tooltip"
-                                title="Liczba w nawiasie oznacza ilość minut, którą powinna odsiedzieć osoba odmawiająca przyjęcia mandatu.">
-                                Pieniądze: {{ fine }} ({{ round(fine / 10) }})</h2>
-                        </div>
-                        <div class="col">
-                            <h2 class="postsecondheader">Punkty karne: {{ pp }}</h2>
-                        </div>
-                        <div class="col">
-                            <h2 class="postsecondheader">Więzienie: {{ jail }}</h2>
-                        </div>
-                        <div class="col">
-                            <h2 class="postsecondheader">Podpunkty: {% for ppkdkk in selected %}
-                                {{ ppkdkk }} {% endfor %}</h2>
-                        </div>
-                    </div>
-                    {% endif %}
-                </div>
-
-
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="">
-                        <button class="btn btn-success" type="submit">Oblicz
-                        </button>
-                    </div>
                 </div>
             </div>
 
@@ -118,7 +114,7 @@
 <script type="module">
 
     //region Imports and Variables
-    var currentVersion = "1.1.6"
+    var currentVersion = "1.1.7"
     var textLeft = document.getElementById("rangeTextLeft")
     var textRight = document.getElementById("rangeTextRight")
     var penalty = document.getElementById("penalty")
@@ -172,6 +168,11 @@
     range.addEventListener("input", rangeTextChange)
 
     rangeTextChange()
+
+
+
+
+
 
 
 

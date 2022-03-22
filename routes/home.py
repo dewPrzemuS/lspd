@@ -73,21 +73,23 @@ def homepost():
         if value is None:
             continue
         selected.append(d)
-        fine += (data[value]["fine"] / division)
+        if data[value]["fine"] / division < data[value]["minfine"]:
+            fine += data[value]["minfine"]
+        else:
+            fine += (data[value]["fine"] / division)
         pp += data[value]["pp"]
-        jail += (data[value]["jail"] / division)
+        if data[value]["minjail"] / division < data[value]["minjail"]:
+            jail += data[value]["minjail"]
+        else:
+            jail += (data[value]["jail"] / division)
+        if data[value]["jailorfine"]:
+            if request.form.get("range") != "2":
+                jail -= (data[value]["jail"] / division)
+            else:
+                fine -= (data[value]["fine"] / division)
         fine = round(fine)
         pp = round(pp)
         jail = round(jail)
-        if fine < data[value]["minfine"]:
-            fine = data[value]["minfine"]
-        if jail < data[value]["minjail"]:
-            jail = data[value]["minjail"]
-        if data[value]["jailorfine"]:
-            if request.form.get("range") != "2":
-                jail = 0
-            else:
-                fine = 0
     if fine == 0 and pp == 0 and jail == 0:
         display = False
 
@@ -95,7 +97,6 @@ def homepost():
     stringSelected = ""
     for select in selected:
         stringSelected += f"{select} "
-
 
     # results = getPenalties()
     # for result in results:

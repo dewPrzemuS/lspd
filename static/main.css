@@ -30,6 +30,7 @@ body {
 }
 
 .form-range {
+    margin-top: 7.5px;
     margin-bottom: 0px;
 }
 
@@ -80,7 +81,7 @@ body {
 }
 
 .penalty {
-    margin-top: 35px;
+    margin-top: 10px;
     margin-bottom: 35px;
 }
 
