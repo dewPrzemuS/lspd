@@ -57,42 +57,53 @@ def homepost():
     fine = 0
     pp = 0
     jail = 0
+    penaltyType = ""
     global division
     global display
     global selected
     selected = []
     display = True
     if request.form.get("range") == "0":
-        division = 3
+        penaltyType = "Minimalny"
     if request.form.get("range") == "1":
-        division = 2
+        penaltyType = "Niski"
+        division = 3
     if request.form.get("range") == "2":
+        penaltyType = "Zwykły"
+        division = 2
+    if request.form.get("range") == "3":
+        penaltyType = "Maksymalny"
         division = 1
     for d in data:
         value = request.form.get(f"option{getalnum(d)}")
         if value is None:
             continue
         selected.append(d)
-        if data[value]["fine"] / division < data[value]["minfine"]:
-            fine += data[value]["minfine"]
-        else:
-            fine += (data[value]["fine"] / division)
         pp += data[value]["pp"]
-        if data[value]["minjail"] / division < data[value]["minjail"]:
+        if request.form.get("range") == "0":
+            fine += data[value]["minfine"]
             jail += data[value]["minjail"]
         else:
-            jail += (data[value]["jail"] / division)
-        if data[value]["jailorfine"]:
-            if request.form.get("range") != "2":
-                jail -= (data[value]["jail"] / division)
+            if data[value]["fine"] / division < data[value]["minfine"]:
+                fine += data[value]["minfine"]
             else:
-                fine -= (data[value]["fine"] / division)
-        fine = round(fine)
-        pp = round(pp)
-        jail = round(jail)
-    if fine == 0 and pp == 0 and jail == 0:
-        display = False
-
+                fine += (data[value]["fine"] / division)
+            if data[value]["minjail"] / division < data[value]["minjail"]:
+                jail += data[value]["minjail"]
+            else:
+                jail += (data[value]["jail"] / division)
+            if data[value]["jailorfine"]:
+                if request.form.get("range") != "3":
+                    jail -= (data[value]["jail"] / division)
+                else:
+                    fine -= (data[value]["fine"] / division)
+    fine = round(fine)
+    pp = round(pp)
+    jail = round(jail)
+    if jail > 250:
+        jail = 250
+    if fine > 5000:
+        fine = 5000
     global stringSelected
     stringSelected = ""
     for select in selected:
@@ -115,4 +126,4 @@ def homepost():
 
     return render_template("index.html", data=data, getalnum=getalnum, len=len, fine=fine, pp=pp, jail=jail,
                            display=display, round=round, amount0=amount0, amount1=amount1,
-                           amount2=amount2, selected=selected)
+                           amount2=amount2, selected=selected, penaltyType=penaltyType)

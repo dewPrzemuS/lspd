@@ -53,11 +53,14 @@
                         <div class="row">
                             <button class="btn btn-success" type="submit">Oblicz
                             </button>
-                            <input class="form-range" id="range" max="2" min="0" name="range" type="range">
+                            <input class="form-range" id="range" max="3" min="0" name="range" type="range">
                             <label class="rangeText" for="range" id="rangeText">Zwykła kara.</label>
                             {% if display == True %}
                             <div class="penalty" id="penalty">
                                 <h1 class="postheader">Kara:</h1>
+                                <div class="col">
+                                    <h2 class="postsecondheader">Typ kary: {{ penaltyType }}</h2>
+                                </div>
                                 <div class="col">
                                     <h2 class="postsecondheader" data-bs-placement="top" data-bs-toggle="tooltip"
                                         title="Liczba w nawiasie oznacza ilość minut, którą powinna odsiedzieć osoba odmawiająca przyjęcia mandatu.">
@@ -114,7 +117,7 @@
 <script type="module">
 
     //region Imports and Variables
-    var currentVersion = "1.1.7"
+    var currentVersion = "1.1.8"
     var textLeft = document.getElementById("rangeTextLeft")
     var textRight = document.getElementById("rangeTextRight")
     var penalty = document.getElementById("penalty")
@@ -155,12 +158,15 @@
 
     function rangeTextChange() {
         if (range.value == 0) {
-            rangeText.innerHTML = "Najniższa kara."
+            rangeText.innerHTML = "Minimalna kara."
         }
         if (range.value == 1) {
-            rangeText.innerHTML = "Zwykła kara."
+            rangeText.innerHTML = "Niska kara."
         }
         if (range.value == 2) {
+            rangeText.innerHTML = "Zwykła kara."
+        }
+        if (range.value == 3) {
             rangeText.innerHTML = "Najwyższa kara."
         }
     }
@@ -168,6 +174,7 @@
     range.addEventListener("input", rangeTextChange)
 
     rangeTextChange()
+
 
 
 
