@@ -28,83 +28,86 @@
 <div class="main" id="main">
     <div class="container">
         {% block body %}
-        <form action="/" id="checkboxes" method="POST">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header text-center">
-                            Kodeks Drogowy
-                        </div>
-                        {% for d in data %}
-                        {% if len(getalnum(d)) == 4 and getalnum(d)[2] == "K" and getalnum(d)[3] == "D" or
-                        len(getalnum(d)) == 5 and getalnum(d)[3] == "K" and getalnum(d)[4] == "D" %}
-                        <div class="form-check">
-                            <input class="form-check-input" id="option{{ getalnum(d) }}" name="option{{ getalnum(d) }}"
-                                   type="checkbox" value="{{ d }}">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                {{ d }}
-                            </label>
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <button class="btn btn-success" type="submit">Oblicz
-                            </button>
-                            <input class="form-range" id="range" max="3" min="0" name="range" type="range">
-                            <label class="rangeText" for="range" id="rangeText">Zwykła kara.</label>
-                            {% if display == True %}
-                            <div class="penalty" id="penalty">
-                                <h1 class="postheader">Kara:</h1>
-                                <div class="col">
-                                    <h2 class="postsecondheader">Typ kary: {{ penaltyType }}</h2>
-                                </div>
-                                <div class="col">
-                                    <h2 class="postsecondheader" data-bs-placement="top" data-bs-toggle="tooltip"
-                                        title="Liczba w nawiasie oznacza ilość minut, którą powinna odsiedzieć osoba odmawiająca przyjęcia mandatu.">
-                                        Pieniądze: {{ fine }} ({{ round(fine / 10) }})</h2>
-                                </div>
-                                <div class="col">
-                                    <h2 class="postsecondheader">Punkty karne: {{ pp }}</h2>
-                                </div>
-                                <div class="col">
-                                    <h2 class="postsecondheader">Więzienie: {{ jail }}</h2>
-                                </div>
-                                <div class="col">
-                                    <h2 class="postsecondheader">Podpunkty: {% for ppkdkk in selected %}
-                                        {{ ppkdkk }} {% endfor %}</h2>
-                                </div>
+            <form action="/" id="checkboxes" method="POST">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                Kodeks Drogowy
                             </div>
-                            {% endif %}
+                            {% for d in data %}
+                                {% if len(getalnum(d)) == 4 and getalnum(d)[2] == "K" and getalnum(d)[3] == "D" or
+                        len(getalnum(d)) == 5 and getalnum(d)[3] == "K" and getalnum(d)[4] == "D" %}
+                                    <div class="form-check">
+                                        <input class="form-check-input" id="option{{ getalnum(d) }}"
+                                               name="option{{ getalnum(d) }}"
+                                               type="checkbox" value="{{ d }}">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            {{ d }}
+                                        </label>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <button class="btn btn-success" type="submit">Oblicz
+                                </button>
+                                <input class="form-range" id="range" max="3" min="0" name="range" type="range">
+                                <label class="rangeText" for="range" id="rangeText">Zwykła kara.</label>
+                                {% if display == True %}
+                                    <div class="penalty" id="penalty">
+                                        <h1 class="postheader">Kara:</h1>
+                                        <div class="col">
+                                            <h2 class="postsecondheader">Typ kary: {{ penaltyType }}</h2>
+                                        </div>
+                                        <div class="col">
+                                            <h2 class="postsecondheader" data-bs-placement="top"
+                                                data-bs-toggle="tooltip"
+                                                title="Liczba w nawiasie oznacza ilość minut, którą powinna odsiedzieć osoba odmawiająca przyjęcia mandatu.">
+                                                Pieniądze: {{ fine }} ({{ round(fine / 10) }})</h2>
+                                        </div>
+                                        <div class="col">
+                                            <h2 class="postsecondheader">Punkty karne: {{ pp }}</h2>
+                                        </div>
+                                        <div class="col">
+                                            <h2 class="postsecondheader">Więzienie: {{ jail }}</h2>
+                                        </div>
+                                        <div class="col">
+                                            <h2 class="postsecondheader">Podpunkty: {% for ppkdkk in selected %}
+                                                {{ ppkdkk }} {% endfor %}</h2>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header text-center">
-                            Kodeks Karny
-                        </div>
-                        {% for d in data %}
-                        {% if len(getalnum(d)) == 4 and getalnum(d)[2] == "K" and getalnum(d)[3] == "K" or
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                Kodeks Karny
+                            </div>
+                            {% for d in data %}
+                                {% if len(getalnum(d)) == 4 and getalnum(d)[2] == "K" and getalnum(d)[3] == "K" or
                         len(getalnum(d)) == 5 and getalnum(d)[3] == "K" and getalnum(d)[4] == "K" %}
-                        <div class="form-check">
-                            <input class="form-check-input" id="option{{ getalnum(d) }}" name="option{{ getalnum(d) }}"
-                                   type="checkbox" value="{{ d }}">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                {{ d }}
-                            </label>
-                        </div>
-                        {% endif %}
-                        {% endfor %}
+                                    <div class="form-check">
+                                        <input class="form-check-input" id="option{{ getalnum(d) }}"
+                                               name="option{{ getalnum(d) }}"
+                                               type="checkbox" value="{{ d }}">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            {{ d }}
+                                        </label>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
 
+                        </div>
                     </div>
                 </div>
-            </div>
 
 
-        </form>
+            </form>
         {% endblock %}
 
     </div>
@@ -174,14 +177,6 @@
     range.addEventListener("input", rangeTextChange)
 
     rangeTextChange()
-
-
-
-
-
-
-
-
 
 
 </script>
