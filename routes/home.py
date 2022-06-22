@@ -40,7 +40,7 @@ def homeget():
     #     amount2 = round((amount2 / howMany) * 100)
 
     return render_template("index.html", data=data, getalnum=getalnum, len=len, amount0=amount0, amount1=amount1,
-                           amount2=amount2)
+                           amount2=amount2, display=False)
 
 
 @home_bp.route("/", methods=["POST"])
