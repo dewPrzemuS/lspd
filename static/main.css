@@ -15,7 +15,10 @@ body {
 
 .card {
     color: white;
+    overflow: auto;
     margin: 5px;
+    height: 825px;
+    /*height: 1671px;*/
     background-color: #404040;
 }
 
@@ -110,4 +113,22 @@ body {
 
 #sendReportButton {
     margin-top: 0px !important;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4f4f4f;
+    border-radius: 60px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #676767;
+    border-radius: 60px;
 }

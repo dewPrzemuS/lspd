@@ -28,6 +28,31 @@
 <div class="main" id="main">
     <div class="container">
         {% block body %}
+
+            {% if display == True %}
+                <div class="penalty" id="penalty">
+                    <h1 class="postheader">Kara:</h1>
+                    <div class="col">
+                        <h2 class="postsecondheader">Typ kary: {{ penaltyType }}</h2>
+                    </div>
+                    <div class="col">
+                        <h2 class="postsecondheader" data-bs-placement="top"
+                            data-bs-toggle="tooltip"
+                            title="Liczba w nawiasie oznacza ilość minut, którą powinna odsiedzieć osoba odmawiająca przyjęcia mandatu.">
+                            Pieniądze: {{ fine }} ({{ round(fine / 10) }})</h2>
+                    </div>
+                    <div class="col">
+                        <h2 class="postsecondheader">Punkty karne: {{ pp }}</h2>
+                    </div>
+                    <div class="col">
+                        <h2 class="postsecondheader">Więzienie: {{ jail }}</h2>
+                    </div>
+                    <div class="col">
+                        <h2 class="postsecondheader">Podpunkty: {% for ppkdkk in selected %}
+                            {{ ppkdkk }} {% endfor %}</h2>
+                    </div>
+                </div>
+            {% endif %}
             <form action="/" id="checkboxes" method="POST">
                 <div class="row">
                     <div class="col-md-6">
@@ -49,38 +74,6 @@
                                 {% endif %}
                             {% endfor %}
 
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <button class="btn btn-success" type="submit">Oblicz
-                                </button>
-                                <input class="form-range" id="range" max="3" min="0" name="range" type="range">
-                                <label class="rangeText" for="range" id="rangeText">Zwykła kara.</label>
-                                {% if display == True %}
-                                    <div class="penalty" id="penalty">
-                                        <h1 class="postheader">Kara:</h1>
-                                        <div class="col">
-                                            <h2 class="postsecondheader">Typ kary: {{ penaltyType }}</h2>
-                                        </div>
-                                        <div class="col">
-                                            <h2 class="postsecondheader" data-bs-placement="top"
-                                                data-bs-toggle="tooltip"
-                                                title="Liczba w nawiasie oznacza ilość minut, którą powinna odsiedzieć osoba odmawiająca przyjęcia mandatu.">
-                                                Pieniądze: {{ fine }} ({{ round(fine / 10) }})</h2>
-                                        </div>
-                                        <div class="col">
-                                            <h2 class="postsecondheader">Punkty karne: {{ pp }}</h2>
-                                        </div>
-                                        <div class="col">
-                                            <h2 class="postsecondheader">Więzienie: {{ jail }}</h2>
-                                        </div>
-                                        <div class="col">
-                                            <h2 class="postsecondheader">Podpunkty: {% for ppkdkk in selected %}
-                                                {{ ppkdkk }} {% endfor %}</h2>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -104,6 +97,13 @@
 
                         </div>
                     </div>
+                    <div class="container">
+                        <button class="btn btn-success" type="submit">Oblicz
+                        </button>
+                        <input class="form-range" id="range" max="3" min="0" name="range" type="range">
+                        <label class="rangeText" for="range" id="rangeText">Zwykła kara.</label>
+                    </div>
+
                 </div>
 
 
@@ -120,7 +120,7 @@
 <script type="module">
 
     //region Imports and Variables
-    var currentVersion = "1.1.9"
+    var currentVersion = "1.2"
     var textLeft = document.getElementById("rangeTextLeft")
     var textRight = document.getElementById("rangeTextRight")
     var penalty = document.getElementById("penalty")
