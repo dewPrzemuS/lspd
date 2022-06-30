@@ -5,7 +5,8 @@
     "jail": 0,
     "minfine": 100,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Jazda pod prąd"
   },
   "1.2KD": {
     "fine": 350,
@@ -13,7 +14,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Jazda po obszarze nieprzeznaczonym dla ruchu pojazdów"
   },
   "1.3KD": {
     "fine": 850,
@@ -21,7 +23,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Drift"
   },
   "1.4KD": {
     "fine": 1000,
@@ -29,7 +32,8 @@
     "jail": 0,
     "minfine": 1000,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Niezarejestrowany pojazd"
   },
   "1.5KD": {
     "fine": 75,
@@ -37,7 +41,8 @@
     "jail": 0,
     "minfine": 20,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Poruszanie się rowerem po ulicy"
   },
   "1.6KD": {
     "fine": 700,
@@ -45,7 +50,8 @@
     "jail": 30,
     "minfine": 700,
     "minjail": 30,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Jazda pod wpływem środków odurzających"
   },
   "1.7KD": {
     "fine": 100,
@@ -53,7 +59,8 @@
     "jail": 0,
     "minfine": 100,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Brak włączonych świateł"
   },
   "1.8KD": {
     "fine": 250,
@@ -61,7 +68,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Blokowanie ruchu drogowego"
   },
   "1.9KD": {
     "fine": 500,
@@ -69,7 +77,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Bezpodstawne korzystanie z sygnałów świetlnych/dźwiękowych"
   },
   "1.10KD": {
     "fine": 500,
@@ -77,7 +86,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Nieustąpienie pierwszeństwa pojazdowi uprzywilejowanemu"
   },
   "1.12KD": {
     "fine": 1500,
@@ -85,7 +95,8 @@
     "jail": 0,
     "minfine": 500,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Poruszanie się pojazdem niesprawnym do ruchu"
   },
   "1.13KD": {
     "fine": 1000,
@@ -93,7 +104,8 @@
     "jail": 0,
     "minfine": 300,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Poruszanie się pojazdem nieprzystosowanym do danego typu drogi"
   },
   "1.14KD": {
     "fine": 10000,
@@ -101,7 +113,8 @@
     "jail": 30,
     "minfine": 5000,
     "minjail": 0,
-    "jailorfine": true
+    "jailorfine": true,
+    "explanation": "Udział w nielegalnym wyścigu"
   },
   "1.15KD": {
     "fine": 500,
@@ -109,7 +122,8 @@
     "jail": 0,
     "minfine": 500,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Przewóz pojazdu lawetą, packerem bądź holownikiem bez sygnalizowania światłami ostrzegawczymi"
   },
   "1.16KD": {
     "fine": 750,
@@ -117,7 +131,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Brak ostrożności w trakcie jazdy"
   },
   "1.17KD": {
     "fine": 1000,
@@ -125,7 +140,8 @@
     "jail": 0,
     "minfine": 1000,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Przewóz osób na dachu pojazdu"
   },
   "1.18KD": {
     "fine": 100,
@@ -133,7 +149,8 @@
     "jail": 0,
     "minfine": 100,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Porzucenie wynajętego roweru"
   },
   "1.21KD": {
     "fine": 250,
@@ -141,7 +158,8 @@
     "jail": 0,
     "minfine": 100,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Brak kasku"
   },
   "1.23KD": {
     "fine": 200,
@@ -149,7 +167,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Korzystanie z sygnałów dźwiękowych w nieuzasadniony sposób"
   },
   "2.1KD": {
     "fine": 300,
@@ -157,7 +176,8 @@
     "jail": 0,
     "minfine": 100,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Wyprzedanie przed/na/za skrzyżowaniem"
   },
   "2.2KD": {
     "fine": 350,
@@ -165,7 +185,8 @@
     "jail": 0,
     "minfine": 100,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Nie zwolnienie do 30km/h przy skrzyżowaniu"
   },
   "2.3KD": {
     "fine": 150,
@@ -173,7 +194,8 @@
     "jail": 0,
     "minfine": 50,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Omijanie na skrzyżowaniu"
   },
   "2.4KD": {
     "fine": 200,
@@ -181,7 +203,8 @@
     "jail": 0,
     "minfine": 200,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zawracanie na skrzyżowaniu"
   },
   "2.5KD": {
     "fine": 350,
@@ -189,7 +212,8 @@
     "jail": 0,
     "minfine": 350,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Nieustąpienie pierwszeństwa na skrzyżowaniu"
   },
   "2.6KD": {
     "fine": 350,
@@ -197,7 +221,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zmiana pasa ruchu na skrzyżowaniu"
   },
   "3.1KD": {
     "fine": 250,
@@ -205,7 +230,8 @@
     "jail": 0,
     "minfine": 50,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Wyprzedzanie w terenie zabudowanym"
   },
   "3.2KD": {
     "fine": 400,
@@ -213,7 +239,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Manewr skrętu z niedozwolonego miejsca/pasa ruchu"
   },
   "3.3KD": {
     "fine": 250,
@@ -221,7 +248,8 @@
     "jail": 0,
     "minfine": 250,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Manewr skrętu z złego pasa ruchu"
   },
   "3.4KD": {
     "fine": 500,
@@ -229,7 +257,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zajmowanie więcej niż 1 pasa ruchu"
   },
   "3.5KD": {
     "fine": 300,
@@ -237,7 +266,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Błędne oznakowanie kierunku jazdy kierunkowzkazami"
   },
   "4.1KD": {
     "fine": 800,
@@ -245,7 +275,8 @@
     "jail": 0,
     "minfine": 100,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Ucieczka przed PD"
   },
   "4.2KD": {
     "fine": 2500,
@@ -253,7 +284,8 @@
     "jail": 45,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": true
+    "jailorfine": true,
+    "explanation": "Ucieczka przed PD pomimo wielokrotnych wezwań"
   },
   "4.3KD": {
     "fine": 100,
@@ -261,7 +293,8 @@
     "jail": 30,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": true
+    "jailorfine": true,
+    "explanation": "Utrudnianie pościgu"
   },
   "5.1KD": {
     "fine": 5000,
@@ -269,7 +302,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Użycie neonów lub nitra"
   },
   "5.3KD": {
     "fine": 1000,
@@ -277,7 +311,8 @@
     "jail": 0,
     "minfine": 500,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Brak uprawnień na wymaganą kategorię pojazdu"
   },
   "6.1KD": {
     "fine": 500,
@@ -285,7 +320,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Spowodowanie kolizji drogowej"
   },
   "6.2KD": {
     "fine": 1000,
@@ -293,7 +329,8 @@
     "jail": 30,
     "minfine": 1000,
     "minjail": 30,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Spowodowanie kolizji drogowej i ucieczka z miejsca wypadku"
   },
   "1.1KK": {
     "fine": 650,
@@ -301,7 +338,8 @@
     "jail": 0,
     "minfine": 50,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Nieodpowiednie zachowanie"
   },
   "1.2KK": {
     "fine": 1000,
@@ -309,7 +347,8 @@
     "jail": 20,
     "minfine": 100,
     "minjail": 0,
-    "jailorfine": true
+    "jailorfine": true,
+    "explanation": "Przejawianie agresji w stosunku do funkcjonariusza"
   },
   "1.3KK": {
     "fine": 500,
@@ -317,7 +356,8 @@
     "jail": 0,
     "minfine": 50,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zakłócanie porządku"
   },
   "1.4KK": {
     "fine": 850,
@@ -325,7 +365,8 @@
     "jail": 0,
     "minfine": 50,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Wtargnięcie na teren prywatny"
   },
   "1.5KK": {
     "fine": 2000,
@@ -333,7 +374,8 @@
     "jail": 0,
     "minfine": 50,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Niszczenie mienia stanu"
   },
   "1.6KK": {
     "fine": 0,
@@ -341,7 +383,8 @@
     "jail": 15,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Utrudnianie pracy funkcjonariuszowi"
   },
   "1.7KK": {
     "fine": 1000,
@@ -349,7 +392,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Nadużywanie numeru alarmowego"
   },
   "1.8KK": {
     "fine": 650,
@@ -357,7 +401,8 @@
     "jail": 10,
     "minfine": 50,
     "minjail": 0,
-    "jailorfine": true
+    "jailorfine": true,
+    "explanation": "Użycie kominiarki przy popełnieniu przestępstwa"
   },
   "1.9KK": {
     "fine": 450,
@@ -365,7 +410,8 @@
     "jail": 15,
     "minfine": 450,
     "minjail": 15,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Obnażanie"
   },
   "1.10KK": {
     "fine": 400,
@@ -373,7 +419,8 @@
     "jail": 0,
     "minfine": 100,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Używanie broni w miejscu publicznym"
   },
   "1.11KK": {
     "fine": 300,
@@ -381,7 +428,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Malowanie rysunków w miejscach do tego nie przeznaczonych"
   },
   "1.12KK": {
     "fine": 0,
@@ -389,7 +437,8 @@
     "jail": 15,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Niewykonywanie poleceń funkcjonariusza"
   },
   "1.13KK": {
     "fine": 200,
@@ -397,7 +446,8 @@
     "jail": 15,
     "minfine": 50,
     "minjail": 0,
-    "jailorfine": true
+    "jailorfine": true,
+    "explanation": "Nieokazanie dokumentów funkcjonariusowi"
   },
   "1.14KK": {
     "fine": 500,
@@ -405,7 +455,8 @@
     "jail": 0,
     "minfine": 250,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Spożywanie wyrobów alkoholowych w miejscu publicznym"
   },
   "1.15KK": {
     "fine": 500,
@@ -413,7 +464,8 @@
     "jail": 0,
     "minfine": 150,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Poruszanie się jako pieszy w miejscu do tego nieprzeznaczonym"
   },
   "1.16KK": {
     "fine": 250,
@@ -421,7 +473,8 @@
     "jail": 0,
     "minfine": 150,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Poruszanie się jako pieszy w miejscu do tego nieprzeznaczonym"
   },
   "1.17KK": {
     "fine": 0,
@@ -429,7 +482,8 @@
     "jail": 20,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Popełnienie przestępstwa pod wpływem alkoholu"
   },
   "1.18KK": {
     "fine": 300,
@@ -437,7 +491,8 @@
     "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Niezgodność, przedawnienie lub brak dokumentów"
   },
   "2.1KK": {
     "fine": 0,
@@ -445,7 +500,8 @@
     "jail": 60,
     "minfine": 0,
     "minjail": 30,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zabójstwo drugiego człowieka"
   },
   "2.2KK": {
     "fine": 0,
@@ -453,7 +509,8 @@
     "jail": 90,
     "minfine": 0,
     "minjail": 60,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zabójstwo drugiego człowieka z użyciem broni palnej itp"
   },
   "2.3KK": {
     "fine": 0,
@@ -461,7 +518,8 @@
     "jail": 40,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zabójstwo drugiego człowieka pod wpływem silnego wzburzenia"
   },
   "2.4KK": {
     "fine": 0,
@@ -469,7 +527,8 @@
     "jail": 20,
     "minfine": 0,
     "minjail": 10,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zabójstwo drugiego człowieka na jego żądanie"
   },
   "2.5KK": {
     "fine": 0,
@@ -477,7 +536,8 @@
     "jail": 20,
     "minfine": 0,
     "minjail": 10,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Unieumyślne spowodowanie śmierci drugiego człowieka"
   },
   "2.6KK": {
     "fine": 0,
@@ -485,7 +545,8 @@
     "jail": 45,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Spowodowanie ciężkiego uszczerbku na zdrowiu"
   },
   "2.7KK": {
     "fine": 0,
@@ -493,7 +554,8 @@
     "jail": 30,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Pobicie drugiego człowieka"
   },
   "2.8KK": {
     "fine": 0,
@@ -501,7 +563,8 @@
     "jail": 60,
     "minfine": 0,
     "minjail": 35,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Użycie broni palnej podczas bójki"
   },
   "2.9KK": {
     "fine": 0,
@@ -509,7 +572,8 @@
     "jail": 15,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Nieudzielenie pierwszej pomocy"
   },
   "2.10KK": {
     "fine": 0,
@@ -517,7 +581,8 @@
     "jail": 20,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Próba zabójstwa drugiego człowieka"
   },
   "2.11KK": {
     "fine": 0,
@@ -525,7 +590,8 @@
     "jail": 40,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Próba zabójstwa funkcjonariusza na służbie"
   },
   "2.12KK": {
     "fine": 0,
@@ -533,7 +599,8 @@
     "jail": 60,
     "minfine": 0,
     "minjail": 30,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Ostrzał z wnętrza pojazdu"
   },
   "3.1KK": {
     "fine": 1000,
@@ -541,7 +608,8 @@
     "jail": 30,
     "minfine": 200,
     "minjail": 0,
-    "jailorfine": true
+    "jailorfine": true,
+    "explanation": "Zakłócanie porządku publicznego"
   },
   "3.2KK": {
     "fine": 0,
@@ -549,7 +617,8 @@
     "jail": 50,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Fałszowanie pieniędzy, dokumentów itp"
   },
   "3.3KK": {
     "fine": 0,
@@ -557,7 +626,8 @@
     "jail": 25,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Posiadanie nielegalnej broni itp"
   },
   "3.4KK": {
     "fine": 0,
@@ -565,7 +635,8 @@
     "jail": 30,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Nielegalna sprzedaż/produkcja broni"
   },
   "3.5KK": {
     "fine": 0,
@@ -573,7 +644,8 @@
     "jail": 15,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Kupno nielegalnej broni itp"
   },
   "3.6KK": {
     "fine": 0,
@@ -581,7 +653,8 @@
     "jail": 150,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Usunięcie przemocą osobistości rządowej"
   },
   "3.7KK": {
     "fine": 0,
@@ -589,7 +662,8 @@
     "jail": 30,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zmuszanie osoby przemocą fizyczną/przemocą psychiczną/groźbami do podjęcia działań"
   },
   "3.8KK": {
     "fine": 0,
@@ -597,7 +671,8 @@
     "jail": 200,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zbrodnia przeciwko państwu"
   },
   "3.9KK": {
     "fine": 0,
@@ -605,7 +680,8 @@
     "jail": 200,
     "minfine": 0,
     "minjail": 100,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Próba/dokonanie zamachu na grupie osób"
   },
   "3.10KK": {
     "fine": 0,
@@ -613,7 +689,8 @@
     "jail": 200,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zamach stanu"
   },
   "3.11KK": {
     "fine": 0,
@@ -621,7 +698,8 @@
     "jail": 35,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Przetrzymywanie zakładników"
   },
   "3.12KK": {
     "fine": 0,
@@ -629,7 +707,8 @@
     "jail": 20,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Złożenie fałszywego wniosku"
   },
   "3.13KK": {
     "fine": 0,
@@ -637,7 +716,8 @@
     "jail": 40,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Preparowanie lub wytwarzanie dowodów mając na celu postawienie drugiej osoby w czyn którego nie popełniła"
   },
   "3.17KK": {
     "fine": 0,
@@ -645,7 +725,8 @@
     "jail": 15,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Używanie środków odurzających w trakcie/przed pracą"
   },
   "3.18KK": {
     "fine": 0,
@@ -653,7 +734,8 @@
     "jail": 40,
     "minfine": 0,
     "minjail": 15,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zachęcanie/wręcanie/odbieranie łapówek"
   },
   "3.19KK": {
     "fine": 0,
@@ -661,7 +743,8 @@
     "jail": 30,
     "minfine": 0,
     "minjail": 15,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Gwałt"
   },
   "3.20KK": {
     "fine": 0,
@@ -669,7 +752,8 @@
     "jail": 30,
     "minfine": 0,
     "minjail": 20,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Gwałt"
   },
   "3.21KK": {
     "fine": 800,
@@ -677,7 +761,8 @@
     "jail": 10,
     "minfine": 200,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Publiczne prezentowanie treści pornograficznych"
   },
   "3.22KK": {
     "fine": 0,
@@ -685,7 +770,8 @@
     "jail": 25,
     "minfine": 0,
     "minjail": 10,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zmuszanie do prostytucji"
   },
   "3.23KK": {
     "fine": 0,
@@ -693,7 +779,8 @@
     "jail": 30,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zmuszanie do prostytucji"
   },
   "3.24KK": {
     "fine": 0,
@@ -701,15 +788,17 @@
     "jail": 40,
     "minfine": 0,
     "minjail": 20,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Bezprawne pozbawienie wolności drugiego człowieka"
   },
-  "3.25KK": {
+  "3.26KK": {
     "fine": 0,
     "pp": 0,
-    "jail": 20,
+    "jail": 0,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Włamanie do bankomatu/domu"
   },
   "3.27KK": {
     "fine": 0,
@@ -717,7 +806,8 @@
     "jail": 40,
     "minfine": 0,
     "minjail": 20,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Próba okradnięcia innego człowieka"
   },
   "3.28KK": {
     "fine": 0,
@@ -725,23 +815,26 @@
     "jail": 30,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Przywłaszczenie cudzej własności/prawa majątkowego"
   },
   "3.29KK": {
     "fine": 0,
     "pp": 0,
-    "jail": 20,
+    "jail": 40,
     "minfine": 0,
-    "minjail": 40,
-    "jailorfine": false
+    "minjail": 20,
+    "jailorfine": false,
+    "explanation": "Zabranie cudzego pojazdu"
   },
   "3.30KK": {
     "fine": 0,
     "pp": 0,
     "jail": 75,
     "minfine": 0,
-    "minjail": 0,
-    "jailorfine": false
+    "minjail": 75,
+    "jailorfine": false,
+    "explanation": "Zamach z użyciem materiałów wybuchowych"
   },
   "3.32KK": {
     "fine": 0,
@@ -749,7 +842,8 @@
     "jail": 100,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Podszywanie/utożsamianie/przedstawianie się jako urzędnik państwowy lub członek organu porządkowego"
   },
   "3.33KK": {
     "fine": 500,
@@ -757,7 +851,8 @@
     "jail": 0,
     "minfine": 50,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zniesławienie drugiego człowieka"
   },
   "3.34KK": {
     "fine": 600,
@@ -765,7 +860,8 @@
     "jail": 15,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Publiczne znieważenie drugiego człowieka"
   },
   "3.35KK": {
     "fine": 0,
@@ -773,7 +869,8 @@
     "jail": 15,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Publiczne nawoływanie do nienawiści"
   },
   "3.36KK": {
     "fine": 0,
@@ -781,7 +878,8 @@
     "jail": 60,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Świadome podpalenie nieruchomości lub mienia"
   },
   "3.37KK": {
     "fine": 0,
@@ -789,7 +887,8 @@
     "jail": 30,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Ukrywanie osoby podejrzanej/poszukiwanej/zbiega"
   },
   "3.38KK": {
     "fine": 0,
@@ -797,7 +896,8 @@
     "jail": 30,
     "minfine": 0,
     "minjail": 15,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zgłoszenia zagrażające bezpieczeństwu"
   },
   "3.39KK": {
     "fine": 0,
@@ -805,7 +905,8 @@
     "jail": 30,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Ucieczka pieszo przed funkcjonariuszem"
   },
   "3.41KK": {
     "fine": 5000,
@@ -813,7 +914,8 @@
     "jail": 30,
     "minfine": 5000,
     "minjail": 30,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Zniszczenie obiektu infrastruktury drogowej"
   },
   "3.42KK": {
     "fine": 1000,
@@ -821,7 +923,8 @@
     "jail": 10,
     "minfine": 0,
     "minjail": 10,
-    "jailorfine": true
+    "jailorfine": true,
+    "explanation": "Naruszenie nietykalności cielesnej innego człowieka"
   },
   "4.4KK": {
     "fine": 0,
@@ -829,7 +932,8 @@
     "jail": 20,
     "minfine": 0,
     "minjail": 10,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Niewywiązanie się z obowiązku bronienia niewinnych osób"
   },
   "5.1KK": {
     "fine": 20000,
@@ -837,23 +941,8 @@
     "jail": 60,
     "minfine": 0,
     "minjail": 10,
-    "jailorfine": true
-  },
-  "5.2KK": {
-    "fine": 0,
-    "pp": 0,
-    "jail": 250,
-    "minfine": 0,
-    "minjail": 0,
-    "jailorfine": false
-  },
-  "5.3KK": {
-    "fine": 0,
-    "pp": 0,
-    "jail": 70,
-    "minfine": 0,
-    "minjail": 10,
-    "jailorfine": false
+    "jailorfine": true,
+    "explanation": "Nienależyte wykonywanie obowiązków będąc pracownikiem organizacji publicznej"
   },
   "5.21KK": {
     "fine": 2500,
@@ -861,7 +950,8 @@
     "jail": 30,
     "minfine": 0,
     "minjail": 0,
-    "jailorfine": true
+    "jailorfine": true,
+    "explanation": "Utradnianie pracy wykonywanej przez pracownika służb miejskich"
   },
   "7.6KK": {
     "fine": 0,
@@ -869,7 +959,8 @@
     "jail": 30,
     "minfine": 0,
     "minjail": 30,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Ucieczka z aresztu"
   },
   "7.7KK": {
     "fine": 0,
@@ -877,7 +968,8 @@
     "jail": 30,
     "minfine": 0,
     "minjail": 30,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Ułatwianie/pomoc w ucieczce"
   },
   "8.4KK": {
     "fine": 0,
@@ -885,7 +977,8 @@
     "jail": 60,
     "minfine": 0,
     "minjail": 30,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Wymuszenie haraczu"
   },
   "8.5KK": {
     "fine": 0,
@@ -893,7 +986,8 @@
     "jail": 70,
     "minfine": 0,
     "minjail": 20,
-    "jailorfine": false
+    "jailorfine": false,
+    "explanation": "Terroryzowanie/prześladowanie danej działalności"
   },
   "10.2KK": {
     "fine": 2000,
@@ -901,6 +995,7 @@
     "jail": 10,
     "minfine": 500,
     "minjail": 5,
-    "jailorfine": true
+    "jailorfine": true,
+    "explanation": "Znęcanie się fizyczne nad zwierzęciem"
   }
 }

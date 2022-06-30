@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 
     <meta charset="utf-8"/>
     <meta
@@ -14,8 +15,8 @@
             href="{{ url_for('static', filename='images/favicon.ico') }}"
             rel="shortcut icon"
     />
-    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 
     <link
@@ -50,6 +51,11 @@
                     <div class="col">
                         <h2 class="postsecondheader">Podpunkty: {% for ppkdkk in selected %}
                             {{ ppkdkk }} {% endfor %}</h2>
+                    </div>
+                    <div class="col">
+                        <h5 class="postsecondheader" style="cursor: pointer" id="explanations" data-bs-placement="top"
+                            data-bs-toggle="tooltip"
+                            title="Kliknij, aby skopiować.">Wyjaśnienie: {{ explanations }}</h5>
                     </div>
                 </div>
             {% endif %}
@@ -112,20 +118,28 @@
 
     </div>
 </div>
-<script src="{{ url_for('static', filename='js.cookie.mjs') }}" type="module"></script>
-<script defer nomodule src="{{ url_for('static', filename='js.cookie.js') }}"></script>
-<script crossorigin="anonymous"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
 <script type="module">
 
     //region Imports and Variables
-    var currentVersion = "1.2"
+    var currentVersion = "1.3"
+    if (Cookies.get("lastVersion") != currentVersion) {
+        swal("Aktualizacja ", "1. Dodano wyjaśnienie wybranych podpunktów.\n2. Usunięto 5.2KK\n3. Poprawiono drobne błędy.", {
+            buttons: {
+                cancel: null,
+            }
+        })
+    }
+    Cookies.remove("lastVersion")
+    Cookies.set("lastVersion", currentVersion, {expires: 10 * 365 * 24 * 60 * 60, sameSite: "strict"})
     var textLeft = document.getElementById("rangeTextLeft")
     var textRight = document.getElementById("rangeTextRight")
     var penalty = document.getElementById("penalty")
     var range = document.getElementById("range")
     var rangeText = document.getElementById("rangeText")
+    var explanationsH5 = document.getElementById("explanations")
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'), null)
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
@@ -173,6 +187,17 @@
             rangeText.innerHTML = "Najwyższa kara."
         }
     }
+
+    explanationsH5.onclick = function () {
+        document.execCommand("copy");
+    }
+
+    explanationsH5.addEventListener("copy", function (e) {
+        e.preventDefault();
+        // get explanations from explanationsH5, delete "Wyjaśnienie: " in front
+        var copyText = explanationsH5.innerText.substring(12);
+        e.clipboardData.setData("text/plain", copyText);
+    });
 
     range.addEventListener("input", rangeTextChange)
 

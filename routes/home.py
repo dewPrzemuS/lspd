@@ -63,6 +63,8 @@ def homepost():
     global selected
     selected = []
     display = True
+    global explanations
+    explanations = ""
     if request.form.get("range") == "0":
         penaltyType = "Minimalny"
     if request.form.get("range") == "1":
@@ -78,6 +80,8 @@ def homepost():
         value = request.form.get(f"option{getalnum(d)}")
         if value is None:
             continue
+        if data[value]["explanation"] != "null":
+            explanations += data[value]["explanation"] + ", "
         selected.append(d)
         pp += data[value]["pp"]
         if request.form.get("range") == "0":
@@ -104,10 +108,12 @@ def homepost():
         jail = 250
     if fine > 5000:
         fine = 5000
-    global stringSelected
-    stringSelected = ""
-    for select in selected:
-        stringSelected += f"{select} "
+    # replace last ", " with "." in explanations
+    explanations = explanations[:-2] + "."
+    # global stringSelected
+    # stringSelected = ""
+    # for select in selected:
+    #     stringSelected += f"{select} "
 
     # results = getPenalties()
     # for result in results:
@@ -126,4 +132,4 @@ def homepost():
 
     return render_template("index.html", data=data, getalnum=getalnum, len=len, fine=fine, pp=pp, jail=jail,
                            display=display, round=round, amount0=amount0, amount1=amount1,
-                           amount2=amount2, selected=selected, penaltyType=penaltyType)
+                           amount2=amount2, selected=selected, penaltyType=penaltyType, explanations=explanations)

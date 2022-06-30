@@ -132,3 +132,23 @@ body {
     background: #676767;
     border-radius: 60px;
 }
+
+.swal-modal {
+    background-color: rgb(80, 80, 80);
+}
+
+.swal-title {
+    color: white;
+    margin-bottom: -8px !important;
+}
+
+.swal-text {
+    color: rgb(235, 235, 235);
+    text-align: center;
+}
+
+
+.swal-footer {
+    margin-top: 0px !important;
+    text-align: center;
+}
