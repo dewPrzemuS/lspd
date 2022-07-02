@@ -78,21 +78,25 @@
                             <div class="card-header text-center">
                                 Kodeks Drogowy
                             </div>
-                            {% for d in data %}
-                                {% if len(getalnum(d)) == 4 and getalnum(d)[2] == "K" and getalnum(d)[3] == "D" or
+                            <div class="content">
+                                {% for d in data %}
+                                    {% if len(getalnum(d)) == 4 and getalnum(d)[2] == "K" and getalnum(d)[3] == "D" or
                         len(getalnum(d)) == 5 and getalnum(d)[3] == "K" and getalnum(d)[4] == "D" %}
-                                    <div class="form-check">
-                                        <input class="form-check-input" id="option{{ getalnum(d) }}"
-                                               name="option{{ getalnum(d) }}"
-                                               type="checkbox" value="{{ d }}">
-                                        <label class="form-check-label" for="flexCheckDefault" data-bs-placement="top"
-                                               data-bs-toggle="tooltip"
-                                               title="{{ data[d]["explanation"] }}">
-                                            {{ d }}
-                                        </label>
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
+                                        <div class="form-check">
+                                            <input class="form-check-input" id="option{{ getalnum(d) }}"
+                                                   name="option{{ getalnum(d) }}"
+                                                   type="checkbox" value="{{ d }}">
+                                            <label class="form-check-label" for="flexCheckDefault"
+                                                   data-bs-placement="top"
+                                                   data-bs-toggle="tooltip"
+                                                   title="{{ data[d]["explanation"] }}">
+                                                {{ d }}
+                                            </label>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </div>
 
                         </div>
                     </div>
@@ -101,22 +105,26 @@
                             <div class="card-header text-center">
                                 Kodeks Karny
                             </div>
-                            {% for d in data %}
-                                {% if len(getalnum(d)) == 4 and getalnum(d)[2] == "K" and getalnum(d)[3] == "K" or
+                            <div class="content">
+                                {% for d in data %}
+                                    {% if len(getalnum(d)) == 4 and getalnum(d)[2] == "K" and getalnum(d)[3] == "K" or
                         len(getalnum(d)) == 5 and getalnum(d)[3] == "K" and getalnum(d)[4] == "K" %}
-                                    <div class="form-check">
-                                        <input class="form-check-input" id="option{{ getalnum(d) }}"
-                                               name="option{{ getalnum(d) }}"
-                                               type="checkbox" value="{{ d }}">
-                                        <label class="form-check-label" for="flexCheckDefault" data-bs-placement="top"
-                                               data-bs-toggle="tooltip"  data-bs-custom-class="punishmentTooltip"
+                                        <div class="form-check">
+                                            <input class="form-check-input" id="option{{ getalnum(d) }}"
+                                                   name="option{{ getalnum(d) }}"
+                                                   type="checkbox" value="{{ d }}">
+                                            <label class="form-check-label" for="flexCheckDefault"
+                                                   data-bs-placement="top"
+                                                   data-bs-toggle="tooltip" data-bs-custom-class="punishmentTooltip"
 
-                                               title="{{ data[d]["explanation"] }}">
-                                            {{ d }}
-                                        </label>
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
+                                                   title="{{ data[d]["explanation"] }}">
+                                                {{ d }}
+                                            </label>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
 
                         </div>
                     </div>
@@ -141,9 +149,9 @@
 <script type="module">
 
     //region Imports and Variables
-    var currentVersion = "1.4.1"
+    var currentVersion = "1.4.2"
     if (Cookies.get("lastVersion") != currentVersion) {
-        swal("Aktualizacja " + currentVersion, "1. Dodano możliwość podglądu co oznacza dany podpunkt najeżdżając na niego myszką, ta funkcja aktualnie działa tylko i wyłącznie na urządzeniach z myszką.\n\n2. Dodano możliwość dodania podpunktów poprzez wpisanie ich formy literowej w pasku wyszukiwania na samej górze.\n\n3. Naprawiono nachalne pokazywanie się informacji o aktualizacji.", {
+        swal("Aktualizacja " + currentVersion, "Poprawiono wygląd listy zmian\n\nPoprawiono przewijanie kart z kodeksem karnym oraz kodeksem drogowym. Od teraz tytuł karty jest cały czas widoczny.\n\nTyp kary od teraz jest zapisywany w pamięci lokalnej, dzięki czemu nie trzeba go ustawiać za każdym razem.\n\nSkrót \"itp\" w wyjaśnieniach zastąpiono lepiej wyglądającym \"lub podobnych przedmiotów\".", {
             buttons: {
                 cancel: null,
             }
@@ -317,12 +325,22 @@
 
     window.onresize = reportWindowSize;
 
+    range.value = 3
+
+    // get "range" from localStorage and set it to range.value
+    if (localStorage.getItem("range") != null) {
+        range.value = localStorage.getItem("range")
+    }
+
     range.addEventListener("input", rangeTextChange)
 
     rangeTextChange()
-
     // set range to max value
-    range.value = 3
+
+    // remember range value for next session
+    range.addEventListener("change", function () {
+        localStorage.setItem("range", range.value)
+    })
 
 
 </script>

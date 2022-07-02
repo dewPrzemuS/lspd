@@ -35,11 +35,15 @@ body {
 
 .card {
     color: white;
-    overflow: auto;
+    /*overflow: auto;*/
     margin: 5px;
     height: 770px;
     /*height: 1671px;*/
     background-color: #404040;
+}
+
+.content {
+    overflow: auto;
 }
 
 .rangeText {
@@ -159,12 +163,14 @@ body {
 
 .swal-title {
     color: white;
-    margin-bottom: -8px !important;
+    margin-top: 7.5px !important;
+    margin-bottom: 0px !important;
 }
 
 .swal-text {
     color: rgb(235, 235, 235);
     text-align: center;
+    margin-bottom: 26.5px !important;
 }
 
 

@@ -510,7 +510,7 @@
     "minfine": 0,
     "minjail": 60,
     "jailorfine": false,
-    "explanation": "Zabójstwo drugiego człowieka z użyciem broni palnej itp"
+    "explanation": "Zabójstwo drugiego człowieka z użyciem broni palnej lub podobnych przedmiotów"
   },
   "2.3KK": {
     "fine": 0,
@@ -618,7 +618,7 @@
     "minfine": 0,
     "minjail": 0,
     "jailorfine": false,
-    "explanation": "Fałszowanie pieniędzy, dokumentów itp"
+    "explanation": "Fałszowanie pieniędzy, dokumentów lub podobnych przedmiotów"
   },
   "3.3KK": {
     "fine": 0,
@@ -627,7 +627,7 @@
     "minfine": 0,
     "minjail": 0,
     "jailorfine": false,
-    "explanation": "Posiadanie nielegalnej broni itp"
+    "explanation": "Posiadanie nielegalnej broni lub podobnych przedmiotów"
   },
   "3.4KK": {
     "fine": 0,
@@ -645,7 +645,7 @@
     "minfine": 0,
     "minjail": 0,
     "jailorfine": false,
-    "explanation": "Kupno nielegalnej broni itp"
+    "explanation": "Kupno nielegalnej broni lub podobnych przedmiotów"
   },
   "3.6KK": {
     "fine": 0,
