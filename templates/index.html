@@ -59,6 +59,18 @@
                     </div>
                 </div>
             {% endif %}
+
+            <div class="row searchBar">
+                <div class="col-md-10">
+                    <input type="search" id="form1" class="form-control"
+                           placeholder="Dodaj podpunkty wpisując je tutaj! Pamiętaj o oddzieleniu ich spacją np. (1.1KD 1.2KD 1.3KD)"
+                           aria-label="Search"/>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-success" id="search" type="submit">Dodaj
+                    </button>
+                </div>
+            </div>
             <form action="/" id="checkboxes" method="POST">
                 <div class="row">
                     <div class="col-md-6">
@@ -104,10 +116,10 @@
                         </div>
                     </div>
                     <div class="container">
-                        <button class="btn btn-success" type="submit">Oblicz
+                        <button class="btn btn-success calculate" type="submit">Oblicz
                         </button>
                         <input class="form-range" id="range" max="3" min="0" name="range" type="range">
-                        <label class="rangeText" for="range" id="rangeText">Zwykła kara.</label>
+                        <label class="rangeText" for="range" id="rangeText">Najwyższa kara.</label>
                     </div>
 
                 </div>
@@ -124,20 +136,22 @@
 <script type="module">
 
     //region Imports and Variables
-    var currentVersion = "1.3"
+    var currentVersion = "1.4"
     if (Cookies.get("lastVersion") != currentVersion) {
-        swal("Aktualizacja ", "1. Dodano wyjaśnienie wybranych podpunktów.\n2. Usunięto 5.2KK\n3. Poprawiono drobne błędy.", {
+        swal("Aktualizacja " + currentVersion, "1. Dodano możliwość dodania podpunktów poprzez wpisanie ich formy literowej w pasku wyszukiwania na samej górze.\n2. Naprawiono nachalne pokazywanie się informacji o aktualizacji.", {
             buttons: {
                 cancel: null,
             }
         })
     }
     Cookies.remove("lastVersion")
-    Cookies.set("lastVersion", currentVersion, {expires: 10 * 365 * 24 * 60 * 60, sameSite: "strict"})
+    Cookies.set("lastVersion", currentVersion, {expires: 365, sameSite: "strict"})
     var textLeft = document.getElementById("rangeTextLeft")
     var textRight = document.getElementById("rangeTextRight")
     var penalty = document.getElementById("penalty")
     var range = document.getElementById("range")
+    var searchTextInput = document.getElementById("form1")
+    var searchButton = document.getElementById("search")
     var rangeText = document.getElementById("rangeText")
     var explanationsH5 = document.getElementById("explanations")
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'), null)
@@ -188,20 +202,122 @@
         }
     }
 
-    explanationsH5.onclick = function () {
-        document.execCommand("copy");
+    // execute when user clicks enter in the search box
+    searchTextInput.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            searchButton.click();
+        }
+    });
+
+    searchButton.addEventListener("click", function (e) {
+        // get text from search input
+        var searchText = searchTextInput.value.toUpperCase()
+        // get all elements
+        var elements = document.getElementsByTagName("*")
+        // loop through all elements and check if it has "option" in its id then add it to checkboxes array
+        var checkboxes = []
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].id.includes("option")) {
+                checkboxes.push(elements[i])
+            }
+        }
+        // make array of searched text by spaces
+        var searchTextArray = searchText.split(" ")
+        // if any of search text is blank then remove it from array
+        for (var i = 0; i < searchTextArray.length; i++) {
+            if (searchTextArray[i] == "") {
+                // remove element from array
+                searchTextArray.splice(i, 1)
+                // decrement i by 1 so that it will check the next element
+                i--
+            }
+        }
+        // if any of search text doesnt have any numbers then remove it from array
+        for (var i = 0; i < searchTextArray.length; i++) {
+            var numbers = searchTextArray[i].match(/\d/g)
+            if (numbers == null) {
+                // remove element from array
+                searchTextArray.splice(i, 1)
+                // decrement i by 1 so that it will check the next element
+                i--
+            }
+            // if numbers are least than 2 then remove it from array
+            if (numbers.length < 2) {
+                // remove element from array
+                searchTextArray.splice(i, 1)
+                // decrement i by 1 so that it will check the next element
+                i--
+            }
+        }
+        // if any of search text doesnt have any letters then remove it from array
+        for (var i = 0; i < searchTextArray.length; i++) {
+            if (searchTextArray[i].match(/[a-zA-Z]/g) == null) {
+                // remove element from array
+                searchTextArray.splice(i, 1)
+                // decrement i by 1 so that it will check the next element
+                i--
+            }
+        }
+        // if any of search text doesnt have any dots then remove it from array
+        for (var i = 0; i < searchTextArray.length; i++) {
+            if (searchTextArray[i].match(/\./g) == null) {
+                // remove element from array
+                searchTextArray.splice(i, 1)
+                // decrement i by 1 so that it will check the next element
+                i--
+            }
+        }
+        // loop through all checkboxes
+        for (var i = 0; i < checkboxes.length; i++) {
+            // get checkbox
+            var checkbox = checkboxes[i]
+            // get checkbox text
+            var checkboxText = checkbox.value.toUpperCase()
+            // if checkbox text contains any of searched text array
+            for (var j = 0; j < searchTextArray.length; j++) {
+                if (checkboxText.includes(searchTextArray[j])) {
+                    // check checkbox
+                    checkbox.checked = true
+                }
+            }
+        }
+    })
+
+    if (explanationsH5 != null) {
+        explanationsH5.onclick = function () {
+            document.execCommand("copy");
+        }
+
+        explanationsH5.addEventListener("copy", function (e) {
+            e.preventDefault();
+            // get explanations from explanationsH5, delete "Wyjaśnienie: " in front
+            var copyText = explanationsH5.innerText.substring(13);
+            e.clipboardData.setData("text/plain", copyText);
+        });
     }
 
-    explanationsH5.addEventListener("copy", function (e) {
-        e.preventDefault();
-        // get explanations from explanationsH5, delete "Wyjaśnienie: " in front
-        var copyText = explanationsH5.innerText.substring(12);
-        e.clipboardData.setData("text/plain", copyText);
-    });
+
+    function reportWindowSize() {
+        if (getViewport() == "xs" || getViewport() == "sm") {
+            // add margin-bottom: 5px to searchTextInput
+            searchTextInput.style.marginBottom = "7.5px"
+        } else {
+            // remove margin-bottom: 5px from searchTextInput
+            searchTextInput.style.marginBottom = "0px"
+        }
+    }
+
+    reportWindowSize()
+
+    window.onresize = reportWindowSize;
 
     range.addEventListener("input", rangeTextChange)
 
     rangeTextChange()
+
+    // set range to max value
+    range.value = 3
 
 
 </script>
