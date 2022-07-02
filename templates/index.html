@@ -85,7 +85,9 @@
                                         <input class="form-check-input" id="option{{ getalnum(d) }}"
                                                name="option{{ getalnum(d) }}"
                                                type="checkbox" value="{{ d }}">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault" data-bs-placement="top"
+                                               data-bs-toggle="tooltip"
+                                               title="{{ data[d]["explanation"] }}">
                                             {{ d }}
                                         </label>
                                     </div>
@@ -106,7 +108,10 @@
                                         <input class="form-check-input" id="option{{ getalnum(d) }}"
                                                name="option{{ getalnum(d) }}"
                                                type="checkbox" value="{{ d }}">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault" data-bs-placement="top"
+                                               data-bs-toggle="tooltip"  data-bs-custom-class="punishmentTooltip"
+
+                                               title="{{ data[d]["explanation"] }}">
                                             {{ d }}
                                         </label>
                                     </div>
@@ -136,9 +141,9 @@
 <script type="module">
 
     //region Imports and Variables
-    var currentVersion = "1.4"
+    var currentVersion = "1.4.1"
     if (Cookies.get("lastVersion") != currentVersion) {
-        swal("Aktualizacja " + currentVersion, "1. Dodano możliwość dodania podpunktów poprzez wpisanie ich formy literowej w pasku wyszukiwania na samej górze.\n2. Naprawiono nachalne pokazywanie się informacji o aktualizacji.", {
+        swal("Aktualizacja " + currentVersion, "1. Dodano możliwość podglądu co oznacza dany podpunkt najeżdżając na niego myszką, ta funkcja aktualnie działa tylko i wyłącznie na urządzeniach z myszką.\n\n2. Dodano możliwość dodania podpunktów poprzez wpisanie ich formy literowej w pasku wyszukiwania na samej górze.\n\n3. Naprawiono nachalne pokazywanie się informacji o aktualizacji.", {
             buttons: {
                 cancel: null,
             }

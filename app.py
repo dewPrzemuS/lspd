@@ -1,12 +1,9 @@
-import os
-
 # from OpenSSL import SSL
 from flask import Flask
 
 from routes.home import home_bp
 
 app = Flask(__name__)
-os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "true"  # !! Only in development environment.
 
 app.register_blueprint(home_bp)
 
