@@ -83,7 +83,7 @@
                                     {% if len(getalnum(d)) == 4 and getalnum(d)[2] == "K" and getalnum(d)[3] == "D" or
                         len(getalnum(d)) == 5 and getalnum(d)[3] == "K" and getalnum(d)[4] == "D" %}
                                         <div class="form-check">
-                                            <input class="form-check-input" id="option{{ getalnum(d) }}"
+                                            <input class="form-check-input option" id="option{{ getalnum(d) }}"
                                                    name="option{{ getalnum(d) }}"
                                                    type="checkbox" value="{{ d }}">
                                             <label class="form-check-label" for="flexCheckDefault"
@@ -110,7 +110,7 @@
                                     {% if len(getalnum(d)) == 4 and getalnum(d)[2] == "K" and getalnum(d)[3] == "K" or
                         len(getalnum(d)) == 5 and getalnum(d)[3] == "K" and getalnum(d)[4] == "K" %}
                                         <div class="form-check">
-                                            <input class="form-check-input" id="option{{ getalnum(d) }}"
+                                            <input class="form-check-input option" id="option{{ getalnum(d) }}"
                                                    name="option{{ getalnum(d) }}"
                                                    type="checkbox" value="{{ d }}">
                                             <label class="form-check-label" for="flexCheckDefault"
@@ -131,6 +131,12 @@
                     <div class="container">
                         <button class="btn btn-success calculate" type="submit">Oblicz
                         </button>
+                        <div class="form-switch text-center">
+                            <input class="form-check-input" type="checkbox" id="jailorfine" name="jailorfine"
+                                   role="switch" id="flexSwitchCheckDefault">
+                            <br>
+                        </div>
+                        <label class="jailorfineText" id="jailorfineText">Preferuj więzienie.</label>
                         <input class="form-range" id="range" max="3" min="0" name="range" type="range">
                         <label class="rangeText" for="range" id="rangeText">Najwyższa kara.</label>
                     </div>
@@ -149,9 +155,9 @@
 <script type="module">
 
     //region Imports and Variables
-    var currentVersion = "1.4.2"
+    var currentVersion = "1.5"
     if (Cookies.get("lastVersion") != currentVersion) {
-        swal("Aktualizacja " + currentVersion, "Poprawiono wygląd listy zmian.\n\nPoprawiono przewijanie kart z kodeksem karnym oraz kodeksem drogowym. Od teraz tytuł karty jest cały czas widoczny.\n\nTyp kary od teraz jest zapisywany w pamięci lokalnej, dzięki czemu nie trzeba go ustawiać za każdym razem.\n\nSkrót \"itp\" w wyjaśnieniach zastąpiono lepiej wyglądającym \"lub podobnych przedmiotów\".", {
+        swal("Aktualizacja " + currentVersion, "Dodano możliwość wyboru preferencji kary. Jeśli któryś z danych podpunktów przewiduje zmienną karę tj. więzienie lub mandat - teraz można dostosować jej typ.\n\nNaprawiono błąd w 1.12KK, który nieprzewidywał kary w postaci mandatu.", {
             buttons: {
                 cancel: null,
             }
@@ -165,6 +171,8 @@
     var range = document.getElementById("range")
     var searchTextInput = document.getElementById("form1")
     var searchButton = document.getElementById("search")
+    var jailorfineCheck = document.getElementById("jailorfine")
+    var jailorfineText = document.getElementById("jailorfineText")
     var rangeText = document.getElementById("rangeText")
     var explanationsH5 = document.getElementById("explanations")
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'), null)
@@ -172,6 +180,8 @@
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
     //endregion
+
+    jailorfineCheck.checked = true
 
     //region Visuals
     function getViewport() {
@@ -341,6 +351,22 @@
     range.addEventListener("change", function () {
         localStorage.setItem("range", range.value)
     })
+
+    // listen when user changes jailorfineCheck value
+    jailorfineCheck.addEventListener("change", function () {
+            if (jailorfineCheck.checked) {
+                jailorfineText.innerText = "Preferuj więzienie."
+            } else {
+                jailorfineText.innerText = "Preferuj mandat."
+            }
+        }
+    )
+
+    if (jailorfineCheck.checked) {
+        jailorfineText.innerText = "Preferuj więzienie."
+    } else {
+        jailorfineText.innerText = "Preferuj mandat."
+    }
 
 
 </script>

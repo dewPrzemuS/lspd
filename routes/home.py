@@ -97,7 +97,7 @@ def homepost():
             else:
                 jail += (data[value]["jail"] / division)
             if data[value]["jailorfine"]:
-                if request.form.get("range") != "3":
+                if request.form.get("jailorfine") != "on":
                     jail -= (data[value]["jail"] / division)
                 else:
                     fine -= (data[value]["fine"] / division)

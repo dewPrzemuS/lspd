@@ -432,12 +432,12 @@
     "explanation": "Malowanie rysunków w miejscach do tego nie przeznaczonych"
   },
   "1.12KK": {
-    "fine": 0,
+    "fine": 1000,
     "pp": 0,
     "jail": 15,
-    "minfine": 0,
+    "minfine": 50,
     "minjail": 0,
-    "jailorfine": false,
+    "jailorfine": true,
     "explanation": "Niewykonywanie poleceń funkcjonariusza"
   },
   "1.13KK": {

@@ -37,7 +37,7 @@ body {
     color: white;
     /*overflow: auto;*/
     margin: 5px;
-    height: 770px;
+    height: 716px;
     /*height: 1671px;*/
     background-color: #404040;
 }
@@ -56,6 +56,16 @@ body {
     align-items: center;
 }
 
+.jailorfineText {
+    color: white;
+    /*margin-top: -5px;*/
+    display: flex;
+    /*font-size: 20px;*/
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
 .form-range {
     margin-top: 7.5px;
     margin-bottom: 0px;
@@ -67,8 +77,8 @@ body {
     justify-items: center;
 }
 
-.form-check-input[type="checkbox"] {
-    border-radius: 50%;
+.option {
+    border-radius: 50% !important;
 }
 
 .form-check-input:checked {
@@ -177,4 +187,8 @@ body {
 .swal-footer {
     margin-top: 0px !important;
     text-align: center;
+}
+
+.form-switch {
+    margin-top: 7.5px;
 }
