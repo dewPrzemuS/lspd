@@ -2,18 +2,13 @@ from datetime import datetime
 
 from flask import Blueprint, render_template, request
 
-from functions.other import data
+from functions.other import dataLspd, getalnum
 
-home_bp = Blueprint('Home', __name__)
-
-
-def getalnum(string):
-    alphanumeric = [character for character in string if character.isalnum()]
-    return "".join(alphanumeric)
+lspd_bp = Blueprint('LSPD', __name__)
 
 
-@home_bp.route("/", methods=["GET"])
-def homeget():
+@lspd_bp.route("/lspd", methods=["GET"])
+def lspdGet():
     today = datetime.now()
     global amount0
     amount0 = 0
@@ -39,12 +34,12 @@ def homeget():
     #     amount1 = round((amount1 / howMany) * 100)
     #     amount2 = round((amount2 / howMany) * 100)
 
-    return render_template("index.html", data=data, getalnum=getalnum, len=len, amount0=amount0, amount1=amount1,
+    return render_template("lspd.html", data=dataLspd, getalnum=getalnum, len=len, amount0=amount0, amount1=amount1,
                            amount2=amount2, display=False)
 
 
-@home_bp.route("/", methods=["POST"])
-def homepost():
+@lspd_bp.route("/lspd", methods=["POST"])
+def lspdPost():
     today = datetime.now()
     global amount0
     amount0 = 0
@@ -76,31 +71,31 @@ def homepost():
     if request.form.get("range") == "3":
         penaltyType = "Maksymalny"
         division = 1
-    for d in data:
+    for d in dataLspd:
         value = request.form.get(f"option{getalnum(d)}")
         if value is None:
             continue
-        if data[value]["explanation"] != "null":
-            explanations += data[value]["explanation"] + ", "
+        if dataLspd[value]["explanation"] != "null":
+            explanations += dataLspd[value]["explanation"] + ", "
         selected.append(d)
-        pp += data[value]["pp"]
+        pp += dataLspd[value]["pp"]
         if request.form.get("range") == "0":
-            fine += data[value]["minfine"]
-            jail += data[value]["minjail"]
+            fine += dataLspd[value]["minfine"]
+            jail += dataLspd[value]["minjail"]
         else:
-            if data[value]["fine"] / division < data[value]["minfine"]:
-                fine += data[value]["minfine"]
+            if dataLspd[value]["fine"] / division < dataLspd[value]["minfine"]:
+                fine += dataLspd[value]["minfine"]
             else:
-                fine += (data[value]["fine"] / division)
-            if data[value]["minjail"] / division < data[value]["minjail"]:
-                jail += data[value]["minjail"]
+                fine += (dataLspd[value]["fine"] / division)
+            if dataLspd[value]["minjail"] / division < dataLspd[value]["minjail"]:
+                jail += dataLspd[value]["minjail"]
             else:
-                jail += (data[value]["jail"] / division)
-            if data[value]["jailorfine"]:
+                jail += (dataLspd[value]["jail"] / division)
+            if dataLspd[value]["jailorfine"]:
                 if request.form.get("jailorfine") != "on":
-                    jail -= (data[value]["jail"] / division)
+                    jail -= (dataLspd[value]["jail"] / division)
                 else:
-                    fine -= (data[value]["fine"] / division)
+                    fine -= (dataLspd[value]["fine"] / division)
     fine = round(fine)
     pp = round(pp)
     jail = round(jail)
@@ -130,6 +125,6 @@ def homepost():
     #     amount1 = round((amount1 / howMany) * 100)
     #     amount2 = round((amount2 / howMany) * 100)
 
-    return render_template("index.html", data=data, getalnum=getalnum, len=len, fine=fine, pp=pp, jail=jail,
+    return render_template("lspd.html", data=dataLspd, getalnum=getalnum, len=len, fine=fine, pp=pp, jail=jail,
                            display=display, round=round, amount0=amount0, amount1=amount1,
                            amount2=amount2, selected=selected, penaltyType=penaltyType, explanations=explanations)

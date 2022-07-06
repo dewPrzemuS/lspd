@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+    <meta charset="utf-8"/>
+    <meta
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+            name="viewport"
+    />
+    <meta content="devPrzemuS" name="author"/>
+    <title>Taryfikator kar LSPD - devPrzemuS</title>
+    <link
+            href="{{ url_for('static', filename='images/lspd-favicon.ico') }}"
+            rel="shortcut icon"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+    <link
+            href="{{ url_for('static', filename = '/lspd.css') }}"
+            rel="stylesheet"
+    />
+
+    <meta content="Taryfikator LSPD" property="og:title"/>
+    <meta content="Taryfikator kar wydawanych przez LSPD dla osób pełniących taką funkcję na serwerze Polish-Real-Life."
+          property="og:description"/>
+    <meta content="https://devprzemus.pythonanywhere.com/lspd" property="og:url"/>
+    <meta content="#3C5BB1" data-react-helmet="true" name="theme-color"/>
+
+</head>
+<body>
+<div class="main" id="main">
+    <div class="container">
+        {% block body %}
+
+            {% if display == True %}
+                <div class="penalty" id="penalty">
+                    <h1 class="postheader">Kara:</h1>
+                    <div class="col">
+                        <h2 class="postsecondheader">Typ kary: {{ penaltyType }}</h2>
+                    </div>
+                    <div class="col">
+                        <h2 class="postsecondheader" data-bs-placement="top"
+                            data-bs-toggle="tooltip"
+                            title="Liczba w nawiasie oznacza ilość minut, którą powinna odsiedzieć osoba odmawiająca przyjęcia mandatu.">
+                            Pieniądze: {{ fine }} ({{ round(fine / 10) }})</h2>
+                    </div>
+                    <div class="col">
+                        <h2 class="postsecondheader">Punkty karne: {{ pp }}</h2>
+                    </div>
+                    <div class="col">
+                        <h2 class="postsecondheader">Więzienie: {{ jail }}</h2>
+                    </div>
+                    <div class="col">
+                        <h2 class="postsecondheader">Podpunkty: {% for ppkdkk in selected %}
+                            {{ ppkdkk }} {% endfor %}</h2>
+                    </div>
+                    <div class="col">
+                        <h5 class="postsecondheader" style="cursor: pointer" id="explanations" data-bs-placement="top"
+                            data-bs-toggle="tooltip"
+                            title="Kliknij, aby skopiować.">Wyjaśnienie: {{ explanations }}</h5>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="row searchBar">
+                <div class="col-md-10">
+                    <input type="search" id="form1" class="form-control"
+                           placeholder="Dodaj podpunkty wpisując je tutaj! Pamiętaj o oddzieleniu ich spacją np. (1.1KD 1.2KD 1.3KD)"
+                           aria-label="Search"/>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-success" id="search" type="submit">Dodaj
+                    </button>
+                </div>
+            </div>
+            <form action="/lspd" id="checkboxes" method="POST">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                Kodeks Drogowy
+                            </div>
+                            <div class="content">
+                                {% for d in data %}
+                                    {% if len(getalnum(d)) == 4 and getalnum(d)[2] == "K" and getalnum(d)[3] == "D" or
+                        len(getalnum(d)) == 5 and getalnum(d)[3] == "K" and getalnum(d)[4] == "D" %}
+                                        <div class="form-check">
+                                            <input class="form-check-input option" id="option{{ getalnum(d) }}"
+                                                   name="option{{ getalnum(d) }}"
+                                                   type="checkbox" value="{{ d }}">
+                                            <label class="form-check-label" for="flexCheckDefault"
+                                                   data-bs-placement="top"
+                                                   data-bs-toggle="tooltip"
+                                                   title="{{ data[d]["explanation"] }}">
+                                                {{ d }}
+                                            </label>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                Kodeks Karny
+                            </div>
+                            <div class="content">
+                                {% for d in data %}
+                                    {% if len(getalnum(d)) == 4 and getalnum(d)[2] == "K" and getalnum(d)[3] == "K" or
+                        len(getalnum(d)) == 5 and getalnum(d)[3] == "K" and getalnum(d)[4] == "K" %}
+                                        <div class="form-check">
+                                            <input class="form-check-input option" id="option{{ getalnum(d) }}"
+                                                   name="option{{ getalnum(d) }}"
+                                                   type="checkbox" value="{{ d }}">
+                                            <label class="form-check-label" for="flexCheckDefault"
+                                                   data-bs-placement="top"
+                                                   data-bs-toggle="tooltip" data-bs-custom-class="punishmentTooltip"
+
+                                                   title="{{ data[d]["explanation"] }}">
+                                                {{ d }}
+                                            </label>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="container">
+                        <button class="btn btn-success calculate" type="submit">Oblicz
+                        </button>
+                        <div class="form-switch text-center">
+                            <input class="form-check-input" type="checkbox" id="jailorfine" name="jailorfine"
+                                   role="switch" id="flexSwitchCheckDefault">
+                            <br>
+                        </div>
+                        <label class="jailorfineText" id="jailorfineText">Preferuj więzienie.</label>
+                        <input class="form-range" id="range" max="3" min="0" name="range" type="range">
+                        <label class="rangeText" for="range" id="rangeText">Najwyższa kara.</label>
+                    </div>
+
+                </div>
+
+
+            </form>
+        {% endblock %}
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+<script type="module">
+
+    //region Imports and Variables
+    var currentVersion = "1.5"
+    if (Cookies.get("lastVersion") != currentVersion) {
+        swal("Aktualizacja " + currentVersion, "Dodano możliwość wyboru preferencji kary. Jeśli któryś z danych podpunktów przewiduje zmienną karę tj. więzienie lub mandat - teraz można dostosować jej typ.\n\nNaprawiono błąd w 1.12KK, który nieprzewidywał kary w postaci mandatu.", {
+            buttons: {
+                cancel: null,
+            }
+        })
+    }
+    Cookies.remove("lastVersion")
+    Cookies.set("lastVersion", currentVersion, {expires: 365, sameSite: "strict"})
+    var textLeft = document.getElementById("rangeTextLeft")
+    var textRight = document.getElementById("rangeTextRight")
+    var penalty = document.getElementById("penalty")
+    var range = document.getElementById("range")
+    var searchTextInput = document.getElementById("form1")
+    var searchButton = document.getElementById("search")
+    var jailorfineCheck = document.getElementById("jailorfine")
+    var jailorfineText = document.getElementById("jailorfineText")
+    var rangeText = document.getElementById("rangeText")
+    var explanationsH5 = document.getElementById("explanations")
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'), null)
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+    //endregion
+
+    jailorfineCheck.checked = true
+
+    //region Visuals
+    function getViewport() {
+        // https://stackoverflow.com/a/8876069
+        const width = Math.max(
+            document.documentElement.clientWidth,
+            window.innerWidth || 0
+        )
+        if (width <= 576) return 'xs'
+        if (width <= 768) return 'sm'
+        if (width <= 992) return 'md'
+        if (width <= 1200) return 'lg'
+        if (width <= 1400) return 'xl'
+        return 'xxl'
+    }
+
+    //endregion
+
+    //region Other Functions
+
+    function max(input) {
+        if (toString.call(input) !== "[object Array]")
+            return false;
+        return Math.max.apply(null, input);
+    }
+
+    //endregion
+
+    function rangeTextChange() {
+        if (range.value == 0) {
+            rangeText.innerHTML = "Minimalna kara."
+        }
+        if (range.value == 1) {
+            rangeText.innerHTML = "Niska kara."
+        }
+        if (range.value == 2) {
+            rangeText.innerHTML = "Zwykła kara."
+        }
+        if (range.value == 3) {
+            rangeText.innerHTML = "Najwyższa kara."
+        }
+    }
+
+    // execute when user clicks enter in the search box
+    searchTextInput.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            searchButton.click();
+        }
+    });
+
+    searchButton.addEventListener("click", function (e) {
+        // get text from search input
+        var searchText = searchTextInput.value.toUpperCase()
+        // get all elements
+        var elements = document.getElementsByTagName("*")
+        // loop through all elements and check if it has "option" in its id then add it to checkboxes array
+        var checkboxes = []
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].id.includes("option")) {
+                checkboxes.push(elements[i])
+            }
+        }
+        // make array of searched text by spaces
+        var searchTextArray = searchText.split(" ")
+        // if any of search text is blank then remove it from array
+        for (var i = 0; i < searchTextArray.length; i++) {
+            if (searchTextArray[i] == "") {
+                // remove element from array
+                searchTextArray.splice(i, 1)
+                // decrement i by 1 so that it will check the next element
+                i--
+            }
+        }
+        // if any of search text doesnt have any numbers then remove it from array
+        for (var i = 0; i < searchTextArray.length; i++) {
+            var numbers = searchTextArray[i].match(/\d/g)
+            if (numbers == null) {
+                // remove element from array
+                searchTextArray.splice(i, 1)
+                // decrement i by 1 so that it will check the next element
+                i--
+            }
+            // if numbers are least than 2 then remove it from array
+            if (numbers.length < 2) {
+                // remove element from array
+                searchTextArray.splice(i, 1)
+                // decrement i by 1 so that it will check the next element
+                i--
+            }
+        }
+        // if any of search text doesnt have any letters then remove it from array
+        for (var i = 0; i < searchTextArray.length; i++) {
+            if (searchTextArray[i].match(/[a-zA-Z]/g) == null) {
+                // remove element from array
+                searchTextArray.splice(i, 1)
+                // decrement i by 1 so that it will check the next element
+                i--
+            }
+        }
+        // if any of search text doesnt have any dots then remove it from array
+        for (var i = 0; i < searchTextArray.length; i++) {
+            if (searchTextArray[i].match(/\./g) == null) {
+                // remove element from array
+                searchTextArray.splice(i, 1)
+                // decrement i by 1 so that it will check the next element
+                i--
+            }
+        }
+        // loop through all checkboxes
+        for (var i = 0; i < checkboxes.length; i++) {
+            // get checkbox
+            var checkbox = checkboxes[i]
+            // get checkbox text
+            var checkboxText = checkbox.value.toUpperCase()
+            // if checkbox text contains any of searched text array
+            for (var j = 0; j < searchTextArray.length; j++) {
+                if (checkboxText.includes(searchTextArray[j])) {
+                    // check checkbox
+                    checkbox.checked = true
+                }
+            }
+        }
+    })
+
+    if (explanationsH5 != null) {
+        explanationsH5.onclick = function () {
+            document.execCommand("copy");
+        }
+
+        explanationsH5.addEventListener("copy", function (e) {
+            e.preventDefault();
+            // get explanations from explanationsH5, delete "Wyjaśnienie: " in front
+            var copyText = explanationsH5.innerText.substring(13);
+            e.clipboardData.setData("text/plain", copyText);
+        });
+    }
+
+
+    function reportWindowSize() {
+        if (getViewport() == "xs" || getViewport() == "sm") {
+            // add margin-bottom: 5px to searchTextInput
+            searchTextInput.style.marginBottom = "7.5px"
+        } else {
+            // remove margin-bottom: 5px from searchTextInput
+            searchTextInput.style.marginBottom = "0px"
+        }
+    }
+
+    reportWindowSize()
+
+    window.onresize = reportWindowSize;
+
+    range.value = 3
+
+    // get "range" from localStorage and set it to range.value
+    if (localStorage.getItem("range") != null) {
+        range.value = localStorage.getItem("range")
+    }
+
+    range.addEventListener("input", rangeTextChange)
+
+    rangeTextChange()
+    // set range to max value
+
+    // remember range value for next session
+    range.addEventListener("change", function () {
+        localStorage.setItem("range", range.value)
+    })
+
+    // listen when user changes jailorfineCheck value
+    jailorfineCheck.addEventListener("change", function () {
+            if (jailorfineCheck.checked) {
+                jailorfineText.innerText = "Preferuj więzienie."
+            } else {
+                jailorfineText.innerText = "Preferuj mandat."
+            }
+        }
+    )
+
+    if (jailorfineCheck.checked) {
+        jailorfineText.innerText = "Preferuj więzienie."
+    } else {
+        jailorfineText.innerText = "Preferuj mandat."
+    }
+
+
+</script>
+
+
+</body>
+</html>
