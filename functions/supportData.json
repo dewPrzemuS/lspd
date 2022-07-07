@@ -1,0 +1,9 @@
+{
+  "IV 1 a) 1.": {
+    "type": "RS",
+    "explanation": "Wyzywanie graczy.",
+    "level1": "WARN",
+    "level2": "AJ",
+    "level3": "BAN"
+  }
+}

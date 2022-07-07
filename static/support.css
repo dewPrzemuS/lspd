@@ -1,0 +1,194 @@
+.form-check {
+    margin: 10px;
+}
+
+.btn {
+    width: 100%;
+}
+
+.calculate {
+    margin-top: 7.5px;
+}
+
+.searchBar {
+    margin-bottom: 7.5px;
+}
+
+.form-control {
+    background-color: #404040;
+    color: white;
+    border: 0px solid #ced4da;
+    height: 38px;
+}
+
+.form-control:focus {
+    background-color: #404040;
+    color: white;
+    box-shadow: 0 0 0 .25rem rgba(39, 196, 120, 0.25);
+}
+
+body {
+    padding: 10px;
+    background-color: #242424;
+    color: #fff;
+}
+
+.card {
+    color: white;
+    /*overflow: auto;*/
+    margin: 5px;
+    height: 716px;
+    /*height: 1671px;*/
+    background-color: #404040;
+}
+
+.content {
+    overflow: auto;
+}
+
+.rangeText {
+    color: white;
+    margin-top: -5px;
+    display: flex;
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.jailorfineText {
+    color: white;
+    /*margin-top: -5px;*/
+    display: flex;
+    /*font-size: 20px;*/
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-range {
+    margin-top: 7.5px;
+    margin-bottom: 0px;
+}
+
+.form-check-label {
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.option {
+    border-radius: 50% !important;
+}
+
+.form-check-input:checked {
+    background-color: #198754;
+    border-color: #198754;
+}
+
+.form-check-input:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 .25rem rgba(25, 135, 84, .25);
+}
+
+.form-range::-moz-range-thumb {
+    background-color: #198754;
+}
+
+.form-range:focus::-moz-range-thumb {
+    box-shadow: 0 0 0 .25rem rgba(25, 135, 84, .25);
+}
+
+.postheader {
+    display: flex;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}
+
+.postsecondheader {
+    display: flex;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-weight: normal;
+}
+
+.penalty {
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+
+.modal-content {
+    background-color: #404040;
+}
+
+.modal-footer {
+    border-top: None;
+    padding: .75rem;
+    padding-top: 0px !important;
+}
+
+.modal-body {
+    padding: 1rem;
+    padding-bottom: 0.5rem !important;
+}
+
+.form-select {
+    margin-bottom: 15px;
+}
+
+.modal-body {
+    padding-bottom: 1rem !important;
+}
+
+#sendReportButton {
+    margin-top: 0px !important;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4f4f4f;
+    border-radius: 60px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #676767;
+    border-radius: 60px;
+}
+
+.swal-modal {
+    background-color: rgb(80, 80, 80);
+}
+
+.swal-title {
+    color: white;
+    margin-top: 7.5px !important;
+    margin-bottom: 0px !important;
+}
+
+.swal-text {
+    color: rgb(235, 235, 235);
+    text-align: center;
+    margin-bottom: 26.5px !important;
+}
+
+
+.swal-footer {
+    margin-top: 0px !important;
+    text-align: center;
+}
+
+.form-switch {
+    margin-top: 7.5px;
+}

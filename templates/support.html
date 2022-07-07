@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+    <meta charset="utf-8"/>
+    <meta
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+            name="viewport"
+    />
+    <meta content="devPrzemuS" name="author"/>
+    <title>Taryfikator kar dla Supporterów - devPrzemuS</title>
+    <link
+            href="{{ url_for('static', filename='images/support-favicon.ico') }}"
+            rel="shortcut icon"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+    <link
+            href="{{ url_for('static', filename = '/support.css') }}"
+            rel="stylesheet"
+    />
+
+    <meta content="Taryfikator Support" property="og:title"/>
+    <meta content="Taryfikator kar wydawanych przez kadrę Supporterów dla osób pełniących taką funkcję na serwerze Polish-Real-Life."
+          property="og:description"/>
+    <meta content="https://i.imgur.com/FKpvqV6.png" property="og:image"/>
+    <meta content="https://devprzemus.pythonanywhere.com/support" property="og:url"/>
+    <meta content="#3C5BB1" data-react-helmet="true" name="theme-color"/>
+
+</head>
+<body>
+<div class="main" id="main">
+    <div class="container">
+        {% block body %}
+
+            {% if display == True %}
+                <div class="penalty" id="penalty">
+                    <h1 class="postheader">Kara:</h1>
+                    <div class="col">
+                        <h2 class="postsecondheader">Typ kary: {{ penaltyType }}</h2>
+                    </div>
+                    <div class="col">
+                        <h2 class="postsecondheader" data-bs-placement="top"
+                            data-bs-toggle="tooltip"
+                            title="Liczba w nawiasie oznacza ilość minut, którą powinna odsiedzieć osoba odmawiająca przyjęcia mandatu.">
+                            Pieniądze: {{ fine }} ({{ round(fine / 10) }})</h2>
+                    </div>
+                    <div class="col">
+                        <h2 class="postsecondheader">Punkty karne: {{ pp }}</h2>
+                    </div>
+                    <div class="col">
+                        <h2 class="postsecondheader">Więzienie: {{ jail }}</h2>
+                    </div>
+                    <div class="col">
+                        <h2 class="postsecondheader">Podpunkty: {% for ppkdkk in selected %}
+                            {{ ppkdkk }} {% endfor %}</h2>
+                    </div>
+                    <div class="col">
+                        <h5 class="postsecondheader" style="cursor: pointer" id="explanations" data-bs-placement="top"
+                            data-bs-toggle="tooltip"
+                            title="Kliknij, aby skopiować.">Wyjaśnienie: {{ explanations }}</h5>
+                    </div>
+                </div>
+            {% endif %}
+            <form action="/support" id="checkboxes" method="POST">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                Regulamin Serwera
+                            </div>
+                            <div class="content">
+                                {% for d in data %}
+                                    {% if data[d]["type"] == "RS" %}
+                                        <div class="form-check">
+                                            <input class="form-check-input option"
+                                                   id="option{{ getalnum(d) }} + {{ data[d]["type"] }}"
+                                                   name="option{{ getalnum(d) }} + {{ data[d]["type"] }}"
+                                                   type="checkbox" value="{{ d }} + {{ data[d]["type"] }}">
+                                            <label class="form-check-label" for="flexCheckDefault"
+                                                   data-bs-placement="top"
+                                                   data-bs-toggle="tooltip"
+                                                   title="{{ data[d]["explanation"] }}">
+                                                {{ d }}
+                                            </label>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </div>
+
+                        </div>
+                    </div>
+                    {#                    <div class="col-md-6">#}
+                    {#                        <div class="card">#}
+                    {#                            <div class="card-header text-center">#}
+                    {#                                Regulamin Forum#}
+                    {#                            </div>#}
+                    {#                            <div class="content">#}
+                    {#                                {% for d in data %}#}
+                    {#                                    {% if len(getalnum(d)) == 4 and getalnum(d)[2] == "K" and getalnum(d)[3] == "K" or#}
+                    {#                        len(getalnum(d)) == 5 and getalnum(d)[3] == "K" and getalnum(d)[4] == "K" %}#}
+                    {#                                        <div class="form-check">#}
+                    {#                                            <input class="form-check-input option" id="option{{ getalnum(d) }}"#}
+                    {#                                                   name="option{{ getalnum(d) }}"#}
+                    {#                                                   type="checkbox" value="{{ d }}">#}
+                    {#                                            <label class="form-check-label" for="flexCheckDefault"#}
+                    {#                                                   data-bs-placement="top"#}
+                    {#                                                   data-bs-toggle="tooltip" data-bs-custom-class="punishmentTooltip"#}
+                    {##}
+                    {#                                                   title="{{ data[d]["explanation"] }}">#}
+                    {#                                                {{ d }}#}
+                    {#                                            </label>#}
+                    {#                                        </div>#}
+                    {#                                    {% endif %}#}
+                    {#                                {% endfor %}#}
+                    {#                            </div>#}
+                    {##}
+                    {##}
+                    {#                        </div>#}
+                    {#                    </div>#}
+                    <div class="container">
+                        <button class="btn btn-success calculate" type="submit">Oblicz
+                        </button>
+                        <input class="form-range" id="range" max="2" min="0" name="range" type="range">
+                        <label class="rangeText" for="range" id="rangeText" for="flexCheckDefault"
+                               data-bs-placement="top"
+                               data-bs-toggle="tooltip"
+                               title="test">Najwyższa kara.</label>
+                    </div>
+
+                </div>
+
+
+            </form>
+        {% endblock %}
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+<script type="module">
+
+    //region Imports and Variables
+    var currentVersion = "1.0"
+    if (Cookies.get("lastSupportVersion") != currentVersion) {
+        swal("Aktualizacja " + currentVersion, "Otworzono stronę do powszechnego użytku.", {
+            buttons: {
+                cancel: null,
+            }
+        })
+    }
+    Cookies.remove("lastSupportVersion")
+    Cookies.set("lastSupportVersion", currentVersion, {expires: 365, sameSite: "strict"})
+    var penalty = document.getElementById("penalty")
+    var range = document.getElementById("range")
+    var searchTextInput = document.getElementById("form1")
+    var searchButton = document.getElementById("search")
+    var rangeText = document.getElementById("rangeText")
+    var explanationsH5 = document.getElementById("explanations")
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'), null)
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+    function getViewport() {
+        // https://stackoverflow.com/a/8876069
+        const width = Math.max(
+            document.documentElement.clientWidth,
+            window.innerWidth || 0
+        )
+        if (width <= 576) return 'xs'
+        if (width <= 768) return 'sm'
+        if (width <= 992) return 'md'
+        if (width <= 1200) return 'lg'
+        if (width <= 1400) return 'xl'
+        return 'xxl'
+    }
+
+
+    function max(input) {
+        if (toString.call(input) !== "[object Array]")
+            return false;
+        return Math.max.apply(null, input);
+    }
+
+    function rangeTextChange() {
+        if (range.value == 0) {
+            rangeText.innerHTML = "Łagodna kara."
+            // change text color to #32CD32
+            rangeText.style.color = "#32CD32"
+        }
+        if (range.value == 1) {
+            rangeText.innerHTML = "Średniowysoka kara."
+            // change text color to #ffff00
+            rangeText.style.color = "#ffff00"
+        }
+        if (range.value == 2) {
+            rangeText.innerHTML = "Najwyższa kara."
+            // change text color to #ff0000
+            rangeText.style.color = "#ff0000"
+        }
+    }
+
+    if (explanationsH5 != null) {
+        explanationsH5.onclick = function () {
+            document.execCommand("copy");
+        }
+
+        explanationsH5.addEventListener("copy", function (e) {
+            e.preventDefault();
+            var copyText = explanationsH5.innerText.substring(13);
+            e.clipboardData.setData("text/plain", copyText);
+        });
+    }
+
+
+    function reportWindowSize() {
+    }
+
+    reportWindowSize()
+
+    window.onresize = reportWindowSize;
+
+    range.value = 0
+
+    if (localStorage.getItem("supportRange") != null) {
+        range.value = localStorage.getItem("supportRange")
+    }
+
+    range.addEventListener("input", rangeTextChange)
+
+    rangeTextChange()
+
+    range.addEventListener("change", function () {
+        localStorage.setItem("range", range.value)
+    })
+
+    // on click on rangetext
+    rangeText.addEventListener("click", function () {
+        swal("Oznaczenia kolorów", "Karą pod kolorem zielonym karani są użytkownicy, którzy złamali zasadę poraz pierwszy, i/lub wykazują poprawę w swoim zachowaniu, i/lub potrafią przyznać się do winy." +
+            "\n\n<Karą pod kolorem żółtym karani są użytkownicy, którzy łamią zasady często, i/lub wykazują niewielką poprawę w swoim zachowaniu." +
+            "\n\nKarą pod kolorem czerwonym karani są użytkownicy, którzy zachowują się w sposób nagminny, i/lub nie wykazują żadnej poprawy w swoim zachowaniu, i/lub po zakończonej poprzedniej karze, dalej łamią te same zasady.", {
+            buttons: {
+                cancel: null
+            },
+        })
+    })
+
+
+</script>
+
+
+</body>
+</html>
