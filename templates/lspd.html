@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 
     <meta charset="utf-8"/>
@@ -27,7 +27,7 @@
     <meta content="Taryfikator LSPD" property="og:title"/>
     <meta content="Taryfikator kar wydawanych przez LSPD dla osób pełniących taką funkcję na serwerze Polish-Real-Life."
           property="og:description"/>
-    <meta content="https://i.imgur.com/PSSeoNQ.png" property="og:image" />
+    <meta content="https://i.imgur.com/PSSeoNQ.png" property="og:image"/>
     <meta content="https://devprzemus.pythonanywhere.com/lspd" property="og:url"/>
     <meta content="#3C5BB1" data-react-helmet="true" name="theme-color"/>
 
@@ -162,12 +162,11 @@
 <script type="module">
 
     //region Imports and Variables
-    var currentVersion = "1.5"
+    var currentVersion = "1.5.1"
     if (Cookies.get("lastLspdVersion") != currentVersion) {
-        swal("Aktualizacja " + currentVersion, "Dodano możliwość wyboru preferencji kary. Jeśli któryś z danych podpunktów przewiduje zmienną karę tj. więzienie lub mandat - teraz można dostosować jej typ.\n\nNaprawiono błąd w 1.12KK, który nieprzewidywał kary w postaci mandatu.", {
-            buttons: {
-                cancel: null,
-            }
+        Swal.fire({
+            title: "Aktualizacja " + currentVersion,
+            text: "Zaktualizowano wersję biblioteki odpowiedzialnej za wyświetlanie alertów m.in. o aktualizacji."
         })
     }
     Cookies.remove("lastLspdVersion")

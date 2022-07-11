@@ -167,26 +167,18 @@ body {
     border-radius: 60px;
 }
 
-.swal-modal {
+
+.swal2-modal {
+    color: white;
     background-color: rgb(80, 80, 80);
 }
 
-.swal-title {
-    color: white;
-    margin-top: 7.5px !important;
-    margin-bottom: 0px !important;
+.swal2-styled.swal2-confirm {
+    background-color: #198754;
 }
 
-.swal-text {
-    color: rgb(235, 235, 235);
-    text-align: center;
-    margin-bottom: 26.5px !important;
-}
-
-
-.swal-footer {
-    margin-top: 0px !important;
-    text-align: center;
+.swal2-styled.swal2-confirm:focus {
+    box-shadow: 0 0 0 .25rem rgba(25, 135, 84, .25);
 }
 
 .form-switch {
