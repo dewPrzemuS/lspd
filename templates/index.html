@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 
     <meta charset="utf-8"/>
@@ -58,17 +58,17 @@
                 <div class="card text-center col-xxl-3 col-lg-4 col-md-6 col-sm-7">
                     <div class="card-body">
                         <a class="text-white" style="text-decoration: none"
-                           href="/support"> <img src="{{ url_for('static', filename='images/types/support.png') }}"
-                                              height="256" width="256" data-bs-placement="top"
-                                              data-bs-toggle="tooltip"
-                                              title="Dostępne wkrótce!">
+                           href="#"> <img src="{{ url_for('static', filename='images/types/support.png') }}"
+                                          height="256" width="256" data-bs-placement="top"
+                                          data-bs-toggle="tooltip"
+                                          title="Dostępne wkrótce!">
                         </a>
                     </div>
                     <div class="card-footer" data-bs-placement="top"
                          data-bs-toggle="tooltip"
                          title="Dostępne wkrótce!">
                         <a class="text-white" style="text-decoration: none"
-                           href="/support"> Taryfikator kar dla Supporterów</a>
+                           href="#"> Taryfikator kar dla Supporterów</a>
                     </div>
                 </div>
 
@@ -92,6 +92,15 @@
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
+    var currentVersion = "1.0"
+    //if (Cookies.get("lastMainVersion") != currentVersion) {
+    //    Swal.fire({
+    //        title: "Aktualizacja " + currentVersion,
+    //        text: "Dodano przycisk do zgłaszania błędów/propozycji w aplikacji."
+    //    })
+    // }
+    Cookies.remove("lastMainVersion")
+    Cookies.set("lastMainVersion", currentVersion, {expires: 365, sameSite: "strict"})
 
     function getViewport() {
         // https://stackoverflow.com/a/8876069

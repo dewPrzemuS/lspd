@@ -163,15 +163,15 @@
 
     //region Imports and Variables
     var currentVersion = "1.5"
-    if (Cookies.get("lastVersion") != currentVersion) {
+    if (Cookies.get("lastLspdVersion") != currentVersion) {
         swal("Aktualizacja " + currentVersion, "Dodano możliwość wyboru preferencji kary. Jeśli któryś z danych podpunktów przewiduje zmienną karę tj. więzienie lub mandat - teraz można dostosować jej typ.\n\nNaprawiono błąd w 1.12KK, który nieprzewidywał kary w postaci mandatu.", {
             buttons: {
                 cancel: null,
             }
         })
     }
-    Cookies.remove("lastVersion")
-    Cookies.set("lastVersion", currentVersion, {expires: 365, sameSite: "strict"})
+    Cookies.remove("lastLspdVersion")
+    Cookies.set("lastLspdVersion", currentVersion, {expires: 365, sameSite: "strict"})
     var textLeft = document.getElementById("rangeTextLeft")
     var textRight = document.getElementById("rangeTextRight")
     var penalty = document.getElementById("penalty")

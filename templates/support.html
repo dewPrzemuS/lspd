@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 
     <meta charset="utf-8"/>
@@ -127,10 +127,11 @@
                         <button class="btn btn-success calculate" type="submit">Oblicz
                         </button>
                         <input class="form-range" id="range" max="2" min="0" name="range" type="range">
-                        <label class="rangeText" for="range" id="rangeText" for="flexCheckDefault"
+                        <label class="rangeText" style="cursor: pointer" for="range" id="rangeText"
+                               for="flexCheckDefault"
                                data-bs-placement="top"
                                data-bs-toggle="tooltip"
-                               title="test">Najwyższa kara.</label>
+                               title="Czym się to różni?">Najwyższa kara.</label>
                     </div>
 
                 </div>
@@ -148,13 +149,17 @@
 
     //region Imports and Variables
     var currentVersion = "1.0"
-    if (Cookies.get("lastSupportVersion") != currentVersion) {
-        swal("Aktualizacja " + currentVersion, "Otworzono stronę do powszechnego użytku.", {
-            buttons: {
-                cancel: null,
-            }
-        })
-    }
+    {#if (Cookies.get("lastSupportVersion") != currentVersion) {#}
+    Swal.fire({
+        title: "Aktualizacja " + currentVersion,
+        text: "Otworzono stronę do powszechnego użytku."
+    })
+    {#swal("Aktualizacja " + currentVersion, "Otworzono stronę do powszechnego użytku.", {#}
+    {#    buttons: {#}
+    {#        cancel: null,#}
+    {#    }#}
+    {# }) #}
+    {# } #}
     Cookies.remove("lastSupportVersion")
     Cookies.set("lastSupportVersion", currentVersion, {expires: 365, sameSite: "strict"})
     var penalty = document.getElementById("penalty")
@@ -244,7 +249,7 @@
     // on click on rangetext
     rangeText.addEventListener("click", function () {
         swal("Oznaczenia kolorów", "Karą pod kolorem zielonym karani są użytkownicy, którzy złamali zasadę poraz pierwszy, i/lub wykazują poprawę w swoim zachowaniu, i/lub potrafią przyznać się do winy." +
-            "\n\n<Karą pod kolorem żółtym karani są użytkownicy, którzy łamią zasady często, i/lub wykazują niewielką poprawę w swoim zachowaniu." +
+            "\n\nKarą pod kolorem żółtym karani są użytkownicy, którzy łamią zasady często, i/lub wykazują niewielką poprawę w swoim zachowaniu." +
             "\n\nKarą pod kolorem czerwonym karani są użytkownicy, którzy zachowują się w sposób nagminny, i/lub nie wykazują żadnej poprawy w swoim zachowaniu, i/lub po zakończonej poprzedniej karze, dalej łamią te same zasady.", {
             buttons: {
                 cancel: null
