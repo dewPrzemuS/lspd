@@ -35,10 +35,8 @@ body {
 
 .card {
     color: white;
-    /*overflow: auto;*/
     margin: 5px;
     height: 716px;
-    /*height: 1671px;*/
     background-color: #404040;
 }
 

@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from flask import Blueprint, render_template, request
 
 from functions.other import dataLspd, getalnum
@@ -9,7 +7,6 @@ lspd_bp = Blueprint('LSPD', __name__)
 
 @lspd_bp.route("/lspd", methods=["GET"])
 def lspdGet():
-    today = datetime.now()
     global amount0
     amount0 = 0
     global amount1
@@ -19,28 +16,12 @@ def lspdGet():
     global howMany
     howMany = 0
 
-    # results = getPenalties()
-    # for result in results:
-    #     value = result[0]
-    #     if value == "0":
-    #         amount0 += 1
-    #     if value == "1":
-    #         amount1 += 1
-    #     if value == "2":
-    #         amount2 += 1
-    #     howMany += 1
-    # if howMany > 0:
-    #     amount0 = round((amount0 / howMany) * 100)
-    #     amount1 = round((amount1 / howMany) * 100)
-    #     amount2 = round((amount2 / howMany) * 100)
-
     return render_template("lspd.html", data=dataLspd, getalnum=getalnum, len=len, amount0=amount0, amount1=amount1,
                            amount2=amount2, display=False)
 
 
 @lspd_bp.route("/lspd", methods=["POST"])
 def lspdPost():
-    today = datetime.now()
     global amount0
     amount0 = 0
     global amount1
@@ -103,27 +84,8 @@ def lspdPost():
         jail = 250
     if fine > 5000:
         fine = 5000
-    # replace last ", " with "." in explanations
-    explanations = explanations[:-2] + "."
-    # global stringSelected
-    # stringSelected = ""
-    # for select in selected:
-    #     stringSelected += f"{select} "
 
-    # results = getPenalties()
-    # for result in results:
-    #     value = result[0]
-    #     if value == "0":
-    #         amount0 += 1
-    #     if value == "1":
-    #         amount1 += 1
-    #     if value == "2":
-    #         amount2 += 1
-    #     howMany += 1
-    # if howMany > 0:
-    #     amount0 = round((amount0 / howMany) * 100)
-    #     amount1 = round((amount1 / howMany) * 100)
-    #     amount2 = round((amount2 / howMany) * 100)
+    explanations = explanations[:-2] + "."
 
     return render_template("lspd.html", data=dataLspd, getalnum=getalnum, len=len, fine=fine, pp=pp, jail=jail,
                            display=display, round=round, amount0=amount0, amount1=amount1,
