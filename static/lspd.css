@@ -182,3 +182,11 @@ body {
 .form-switch {
     margin-top: 7.5px;
 }
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: lightgray;
+}

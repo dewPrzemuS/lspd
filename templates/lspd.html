@@ -59,10 +59,22 @@
                         <h2 class="postsecondheader">Podpunkty: {% for ppkdkk in selected %}
                             {{ ppkdkk }} {% endfor %}</h2>
                     </div>
+
                     <div class="col">
-                        <h5 class="postsecondheader" style="cursor: pointer" id="explanations" data-bs-placement="top"
+                        <h5 class="postsecondheader" style="cursor: pointer" id="explanationsFine"
+                            data-bs-placement="top"
                             data-bs-toggle="tooltip"
-                            title="Kliknij, aby skopiować.">Wyjaśnienie: {{ explanations }}</h5>
+                            title="Kliknij, aby skopiować.">Wyjaśnienie mandatu:
+                            {{ fineExplanations }}
+                        </h5>
+                    </div>
+                    <div class="col">
+                        <h5 class="postsecondheader" style="cursor: pointer" id="explanationsJail"
+                            data-bs-placement="top"
+                            data-bs-toggle="tooltip"
+                            title="Kliknij, aby skopiować.">Wyjaśnienie więzienie:
+                            {{ jailExplanations }}
+                        </h5>
                     </div>
                 </div>
             {% endif %}
@@ -162,11 +174,11 @@
 <script type="module">
 
     //region Imports and Variables
-    var currentVersion = "1.5.1"
+    var currentVersion = "1.6"
     if (Cookies.get("lastLspdVersion") != currentVersion) {
         Swal.fire({
             title: "Aktualizacja " + currentVersion,
-            text: "Zaktualizowano wersję biblioteki odpowiedzialnej za wyświetlanie alertów m.in. o aktualizacji."
+            html: 'Od teraz minimalna kara nie może być niższa niż 1.\nRozdzielono wyjaśnienia mandatów i kary więzienia ze względu na możliwość pisania <a target="_blank" href="https://polish-real-life.pl/showthread.php?tid=221567">skarg</a>.'
         })
     }
     Cookies.remove("lastLspdVersion")
@@ -180,7 +192,8 @@
     var jailorfineCheck = document.getElementById("jailorfine")
     var jailorfineText = document.getElementById("jailorfineText")
     var rangeText = document.getElementById("rangeText")
-    var explanationsH5 = document.getElementById("explanations")
+    var explanationsH5Fine = document.getElementById("explanationsFine")
+    var explanationsH5Jail = document.getElementById("explanationsJail")
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'), null)
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
@@ -313,17 +326,31 @@
         }
     })
 
-    if (explanationsH5 != null) {
-        explanationsH5.onclick = function () {
+    if (explanationsH5Fine != null) {
+        explanationsH5Fine.onclick = function () {
             document.execCommand("copy");
         }
 
-        explanationsH5.addEventListener("copy", function (e) {
+        explanationsH5Fine.addEventListener("copy", function (e) {
             e.preventDefault();
             // get explanations from explanationsH5, delete "Wyjaśnienie: " in front
-            var copyText = explanationsH5.innerText.substring(13);
+            var copyText = explanationsH5Fine.innerText.substring(21);
             e.clipboardData.setData("text/plain", copyText);
         });
+    }
+
+    if (explanationsH5Jail != null) {
+        explanationsH5Jail.onclick = function () {
+            document.execCommand("copy");
+
+        }
+        explanationsH5Jail.addEventListener("copy", function (e) {
+            e.preventDefault();
+            // get explanations from explanationsH5, delete "Wyjaśnienie: " in front
+            var copyText = explanationsH5Jail.innerText.substring(23);
+            e.clipboardData.setData("text/plain", copyText);
+        });
+
     }
 
 
