@@ -72,7 +72,7 @@
                         <h5 class="postsecondheader" style="cursor: pointer" id="explanationsJail"
                             data-bs-placement="top"
                             data-bs-toggle="tooltip"
-                            title="Kliknij, aby skopiować.">Wyjaśnienie więzienie:
+                            title="Kliknij, aby skopiować.">Wyjaśnienie więzienia:
                             {{ jailExplanations }}
                         </h5>
                     </div>
@@ -174,11 +174,11 @@
 <script type="module">
 
     //region Imports and Variables
-    var currentVersion = "1.6"
+    var currentVersion = "1.6.1"
     if (Cookies.get("lastLspdVersion") != currentVersion) {
         Swal.fire({
             title: "Aktualizacja " + currentVersion,
-            html: 'Od teraz minimalna kara nie może być niższa niż 1.\nRozdzielono wyjaśnienia mandatów i kary więzienia ze względu na możliwość pisania <a target="_blank" href="https://polish-real-life.pl/showthread.php?tid=221567">skarg</a>.'
+            html: 'Zaktualozowano 4.1KD oraz 4.2KD zgodnie z zmianami z 1 września 2022 roku.\nPoprawiono literówkę w wyjaśnieniach więzienia.'
         })
     }
     Cookies.remove("lastLspdVersion")

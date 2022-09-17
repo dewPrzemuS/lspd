@@ -270,7 +270,7 @@
     "explanation": "Błędne oznakowanie kierunku jazdy kierunkowzkazami"
   },
   "4.1KD": {
-    "fine": 800,
+    "fine": 1000,
     "pp": 8,
     "jail": 0,
     "minfine": 100,
@@ -280,7 +280,7 @@
   },
   "4.2KD": {
     "fine": 2500,
-    "pp": 0,
+    "pp": 24,
     "jail": 45,
     "minfine": 0,
     "minjail": 0,
