@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template
 
 from functions.other import dataSupport, getalnum
 
@@ -34,9 +34,9 @@ def supportGet():
     #     amount1 = round((amount1 / howMany) * 100)
     #     amount2 = round((amount2 / howMany) * 100)
 
-    return render_template("support.html", data=dataSupport, getalnum=getalnum, len=len, amount0=amount0, amount1=amount1,
+    return render_template("support.html", data=dataSupport, getalnum=getalnum, len=len, amount0=amount0,
+                           amount1=amount1,
                            amount2=amount2, display=False)
-
 
 # @support_bp.route("/support", methods=["POST"])
 # def supportPost():

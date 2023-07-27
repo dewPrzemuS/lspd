@@ -133,4 +133,5 @@ def lspdPost():
 
     return render_template("lspd.html", data=dataLspd, getalnum=getalnum, len=len, fine=fine, pp=pp, jail=jail,
                            display=display, round=round, amount0=amount0, amount1=amount1,
-                           amount2=amount2, selected=selected, penaltyType=penaltyType, fineExplanations=fineExplanations, jailExplanations=jailExplanations)
+                           amount2=amount2, selected=selected, penaltyType=penaltyType,
+                           fineExplanations=fineExplanations, jailExplanations=jailExplanations)
